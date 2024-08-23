@@ -44,5 +44,66 @@ FarmConnect is a mobile application designed to bridge the gap between farmers a
      npm install
    ```
 
+4. **Setup Configuration**
+   
+   • Create a .env file in the root directory and add the necessary configuration variables, such as database URL and API keys.
+
+5. **Run the Application**
+
+   -> For the mobile app:
+   ```bash
+      npm start
+   ```
+   -> For the backend:
+   ```bash
+      cd server
+      npm start
+   ```
+### Usage
+
+- **Register an Account**: Open the app and create a new account as a farmer or buyer.
+- **Create a Listing**: Farmers can add produce listings with details and set prices.
+- **Browse Listings**: Buyers can search and filter through available produce.
+- **Negotiate and Purchase**: Engage in price negotiations and finalize transactions directly through the app.
+- **Manage Orders**: Track order status and manage transactions from your profile.
+
+### Contributing
+
+We welcome contributions to enhance the FarmConnect platform. To contribute:
+
+1. **Fork the Repository:**
+
+  Click the "Fork" button at the top right of the repository page.
+
+2. **Clone Your Fork:**
+
+```bash
+   git clone https://github.com/yourusername/farmconnect.git
+```
+   
+3. **Create a Branch:**
+
+```bash
+   git checkout -b feature/your-feature
+```
+
+4. **Make Changes:** Implement your changes and test them thoroughly.
+
+5. **Commit and Push:** 
+
+```bash
+   git add .
+   git commit -m "Add feature: your feature description"
+   git push origin feature/your-feature
+
+```
+
+6. **Create a Pull Request:** Go to the original repository and create a pull request from your branch.
+
+
+### Contact
+
+For any questions or support, please open an issue on GitHub or contact us at pandasrikant365@gmail.com | jyotiprakashtripathy2004@gmail.com .
+
 
  
