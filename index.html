@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmers Market - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="search.js"></script>
+    <script defer src="carousel.js"></script>
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>AgriBaazarConnect</h1>
+            <nav>
+                <ul>
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Products</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="contact.html">Contact</a>
+                </ul> 
+            </nav>
+        </div>
+    </header>
+    
+    
+    
+    <!-- Main Content Section -->
+    <main>
+        <div class="search-box">
+            <div class="sr-box">
+                <input type="text" id="search-input" placeholder="Search for products">
+                <button id="search-button">Search</button>  
+            </div>
+        </div>
+        <div class="container">
+            <section class="hero">
+                <h2>Welcome to Farmers Market</h2>
+                <div class="container">
+                    <!-- Carousel Section -->
+                    <section class="carousel">
+                        <div class="carousel-wrapper">
+                            <div class="carousel-slide">
+                                <img src="res/img/pngtree-farmers-market-promotion-discount-poster-template-fresh-agricultural-products-png-image_6929798.png" alt="Slide 1">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="res/img/greengrocer-selling-organic-fresh-agricultural-product-farmer-market_53876-58800.avif" alt="Slide 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="res/img/1712375344673.png" alt="Slide 3">
+                            </div>
+                        </div>
+                        <button class="carousel-prev">&lt;</button>
+                        <button class="carousel-next">&gt;</button>
+                    </section>
+                    <!-- Other sections like featured products, etc. -->
+                </div>
+                <p>Your one-stop solution for buying and selling fresh produce directly.</p>
+                <a href="products.html" class="btn">Browse Products</a>
+            </section>
+
+            <section class="featured-products">
+                <h2>Featured Products</h2>
+                <div class="product-list">
+                    <!-- Example Product Card -->
+                    <article class="product-card">
+                        <img src="res/img/Tomato_r1 (1).png" alt="Product 1">
+                        <h3>Fresh Tomatoes</h3>
+                        <p>₹80/kg</p>
+                        <br>
+                        <a href="product-detail.html?id=1" class="btn__prd">View Details</a>
+                    </article>
+                    <!-- Add more product cards as needed -->
+                    <article class="product-card">
+                        <img src="res/img/Tomato_r1 (1).png" alt="Product 1">
+                        <h3>Fresh Tomatoes</h3>
+                        <p>₹80/kg</p>
+                        <br>
+                        <a href="product-detail.html?id=1" class="btn__prd">View Details</a>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CodeTitans. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "Fresh Tomatoes",
+        "price": "2.99/kg",
+        "image": "images/product1.jpg",
+        "description": "Juicy and ripe tomatoes."
+    },
+    {
+        "id": 2,
+        "name": "Organic Carrots",
+        "price": "1.99/kg",
+        "image": "images/product2.jpg",
+        "description": "Crisp and sweet organic carrots."
+    }
+]

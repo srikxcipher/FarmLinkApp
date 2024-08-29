@@ -1,0 +1,239 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+/* Apply fonts */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    position: flex;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    color:black;
+    z-index: 1000;
+}
+
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.hero h2 {
+    font-size: 2rem;
+}
+
+.hero p {
+    margin: 1rem 0;
+}
+
+.btn {
+    background-color: #ff6600;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+
+.btn:hover {
+    background-color: #555;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.featured-products {
+    padding: 2rem 0;
+
+}
+
+.product-list {
+    padding-top: 2rem;
+    display: inline-flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+
+.btn__prd {
+    background-color: #ff6600;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn__prd:hover {
+    background-color: #555;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.product-card {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-radius: 5px;
+    flex: 1 1 calc(33% - 1rem);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.product-card img {
+    width: 180px;
+    height: 120px;
+    border-radius: 5px;
+}
+
+.product-card h3 {
+    margin: 0.5rem 0;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative  ;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/*-------------------------------------------------*/
+
+/* Carousel Styles */
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+
+/*-------------------------------------------------*/
+
+
+/* SearchBox Style */
+/* Ensure the container spans the full height of the viewport */
+.search-box {
+    position: relative; /* Fixed position keeps it in place even when scrolling */
+    top: 0; /* Aligns it to the top of the viewport */
+    right: 0; /* Aligns it to the right edge of the viewport */
+    padding: 20px; /* Adds padding around the container */
+    background: #fff; /* Optional: Background color for the container */
+    border-left: 1px solid #ddd; /* Optional: Border for visual separation */
+}
+
+/* Style for the search box */
+.sr-box {
+    display: flex; /* Aligns input and button in a row */
+    align-items: center; /* Vertically centers items */
+}
+
+#search-input {
+    padding: 8px; /* Adds padding inside the input */
+    border: 1px solid #ccc; /* Border color and style for the input */
+    border-radius: 4px; /* Rounded corners for the input */
+    margin-right: 10px; /* Space between the input and button */
+}
+
+#search-button {
+    padding: 8px 16px; /* Adds padding inside the button */
+    background-color: #007bff; /* Background color for the button */
+    color: #fff; /* Text color for the button */
+    border: none; /* Removes border */
+    border-radius: 4px; /* Rounded corners for the button */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+#search-button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
