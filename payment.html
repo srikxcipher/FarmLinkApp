@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<style>
+    body{
+        background-image:url("/src/img/payment.png");
+        background-repeat: repeat-y;
+    }
+    .con{
+        display:flex;
+        justify-content: center;
+    }
+    .bt{
+        display: block;
+    }
+</style>
+<body>
+    <div class="con">
+        <div><h1>Complete Your Payment</h1><div>
+            <div><h2>Click 'Pay with Razorpay' to complete your purchase</h2></div>
+            
+            <div class="bt"><button id="rzp-button1">Pay with Razorpay</button></div>
+        
+    </div>
+   
+
+    <script>
+        // Function to handle payment
+        document.getElementById('rzp-button1').onclick = function(e) {
+            e.preventDefault();
+
+            const options = {
+                key: 'YOUR_KEY_ID', // Replace with your Razorpay Key ID
+                amount: '50000', // Amount in smallest currency unit (paise for INR)
+                currency: 'INR',
+                name: 'Your Company Name',
+                description: 'Test Transaction',
+                image: 'https://example.com/your_logo', // Replace with your logo URL
+                order_id: 'ORDER_ID_FROM_BACKEND', // Pass the order ID generated on the backend
+                handler: function (response){
+                    // Handle the payment response here
+                    alert('Payment successful!');
+                    console.log('Payment ID: ', response.razorpay_payment_id);
+                    console.log('Order ID: ', response.razorpay_order_id);
+                    console.log('Signature: ', response.razorpay_signature);
+
+                    // Optionally, you can make an AJAX request to your backend to verify the payment
+                    // and update your order status in the database.
+                },
+                prefill: {
+                    name: 'User Name', // Replace with the user's name
+                    email: 'user@example.com', // Replace with the user's email
+                    contact: '9999999999' // Replace with the user's phone number
+                },
+                notes: {
+                    address: 'User Address' // Additional notes for your records
+                },
+                theme: {
+                    color: '#3399cc' // Customize the color of the Razorpay form
+                }
+            };
+
+            const rzp1 = new Razorpay(options);
+            rzp1.open();
+
+            // Optional: you can disable the button to prevent multiple clicks
+            document.getElementById('rzp-button1').disabled = true;
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,361 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.main-container {
+    display: flex;
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* Side Navigation */
+.side-nav {
+    width: 80px; /* Adjust width as needed */
+    background-color: #333;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    position: fixed ; /* Fix to the side of the page */
+    top: 0;
+    left: 0;
+}
+
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.side-nav ul li {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.side-nav ul li a img {
+    width: 40px; /* Adjust size as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Adjust content padding to account for fixed side-nav */
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 80px; /* Offset for fixed side-nav */
+}
+
+/* Carousel section */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.sr-bx {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.sr-box {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.sr-box input {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.sr-box button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.sr-box button:hover {
+    background-color: #45a049;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Carousel */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-card h3 {
+    margin: 15px 0;
+}
+
+.product-card p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.quantity-section {
+    margin: 10px 0;
+}
+
+.quantity-section label {
+    font-size: 0.9rem;
+}
+
+.quantity-section input {
+    width: 50px;
+    padding: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.gh{
+    display:flex;
+    justify-content: center;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.btn__prd {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn__prd:hover {
+    background-color: #45a049;
+}
+
+.deal-discount {
+    color: red;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.reviews {
+    background-color: #f1f1f1;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-form textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.rating-stars {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.rating-stars .star {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.rating-stars .star:hover,
+.rating-stars .star.active {
+    color: gold;
+}
+
+.btn__review {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        min-height: auto; /* Reset to default */
+    }
+
+    .sr-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sr-box input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .sr-box button {
+        width: 100%;
+    }
+
+    .side-nav {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10px 0;
+        height: auto; /* Reset height */
+        position: static; /* Reset fixed position */
+    }
+
+    .side-nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .side-nav ul li {
+        margin: 0;
+    }
+
+    .content {
+        padding: 10px;
+        margin-left: 0; /* Reset margin */
+    }
+}
+
+@media (max-width: 480px) {
+    .side-nav ul li a img {
+        width: 30px;
+    }
+
+    .product-card {
+        padding: 10px;
+    }
+
+    .btn, .btn__prd {
+        padding: 8px 16px;
+    }
+
+    .rating-stars .star {
+        font-size: 1.5rem;
+    }
+}

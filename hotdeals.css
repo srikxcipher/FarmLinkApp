@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.hot-deals {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.section-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.deal-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.deal-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 200px;
+    text-align: center;
+    position: relative;
+}
+
+.deal-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.deal-info {
+    padding: 10px;
+}
+
+.deal-title {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.deal-price {
+    font-size: 1.1em;
+    color: #27ae60;
+    margin: 5px 0;
+}
+
+.deal-discount {
+    font-size: 0.9em;
+    color: #e74c3c;
+}

@@ -1,0 +1,166 @@
+/* usrProfile.css */
+
+/* Reset some basic styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes up the full viewport height */
+    background-color: #f9f9f9; /* Light background for the body */
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.main-container {
+    display: flex;
+    flex: 1; /* Allow the main container to take available space */
+}
+
+/* Side Navigation */
+.side-nav {
+    width: 80px; /* Adjust width as needed */
+    background-color: #333;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.side-nav ul {
+    list-style: none;
+    width: 100%;
+}
+
+.side-nav ul li {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.side-nav ul li a img {
+    width: 40px; /* Adjust size as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Main content styling */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    background-color: white; /* White background for the header */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 20px;
+}
+
+.profile-header .profile-picture img {
+    width: 150px; /* Adjust size as needed */
+    height: 150px; /* Adjust size as needed */
+    border-radius: 50%; /* Circular profile picture */
+    border: 4px solid #4CAF50; /* Green border */
+}
+
+.profile-header .profile-info {
+    margin-left: 20px;
+}
+
+.profile-header .profile-info h1 {
+    margin: 0;
+    font-size: 24px; /* Adjust size as needed */
+    color: #333;
+}
+
+.profile-header .profile-info p {
+    margin: 5px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .side-nav {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10px 0;
+        height: auto; /* Reset height for smaller screens */
+    }
+
+    .side-nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .side-nav ul li {
+        margin: 0;
+    }
+
+    main {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .side-nav ul li a img {
+        width: 30px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+    }
+}

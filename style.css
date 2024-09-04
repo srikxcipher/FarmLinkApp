@@ -1,0 +1,81 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: f4f4f4;
+    color: #333;
+    line-height:1.6;
+}
+header{
+    background-color: #228b22;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+h1{
+    margin: 0;
+    font-size: 2.5rem;
+}
+section{
+    padding: 20px;
+    margin: 20px 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h2{
+    color: #228b22;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+p{
+    margin: 10px 0;
+    font-size: 1 rem;
+}
+.team-member{
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+}
+blockquote{
+    font-style:italic;
+    color: #555;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #ccc;
+}
+.cta{
+    text-align: center;
+    background-color: #e8f5e9;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+.cta-button{
+    background-color: #228b22;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: inline-block;
+}
+.cta-button:hover{
+    background-color: #1e7e1e;
+}
+footer{
+    text-align:center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+footer a{
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+footer a:hover{
+    text-decoration: underline;
+}

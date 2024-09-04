@@ -1,0 +1,113 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriBazaar - Filter</title>
+    <link rel="stylesheet" href="filter.css">
+    <script src="filter.js"></script>
+</head>
+<body>
+    <header>
+        <h1>AgriBazaar</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="product.html">Products</a>
+            <a href="filter.html" class="active">Filter</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="filter-section">
+                <h2>Filter Products</h2>
+                
+                <div class="filter-group">
+                    <h3>Price Range</h3>
+                    <input type="range" id="price-range" min="0" max="500" step="10" value="250">
+                    <p>Up to ₹<span id="price-value">250</span></p>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Offers</h3>
+                    <label><input type="checkbox" class="filter-offer" value="Free Shipping"> Free Shipping</label>
+                    <label><input type="checkbox" class="filter-offer" value="Buy 1 Get 1"> Buy 1 Get 1</label>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Discounts</h3>
+                    <label><input type="checkbox" class="filter-discount" value="10"> 10% Off</label>
+                    <label><input type="checkbox" class="filter-discount" value="20"> 20% Off</label>
+                    <label><input type="checkbox" class="filter-discount" value="30"> 30% Off</label>
+                </div>
+            </div>
+
+            <div class="products-section">
+                <h2>Products</h2>
+                <div class="product-container">
+                    <div class="card">
+                        <div class="card-image">
+                            <!-- Placeholder for image -->
+                            <img src="src/img/Apples.jpg" alt="Product Image" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Apples</h3>
+                            <p>₹100</p>
+                            <p>Free Shipping | 10% Off</p>
+                        </div>
+                    </div>
+                    <!-- Add more product cards here -->
+                
+                
+                
+                    <div class="card">
+                        <div class="card-image">
+                            <!-- Placeholder for image -->
+                            <img src="src/img/Banana.jpg" alt="Product Image" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Bananas</h3>
+                            <p>₹100</p>
+                            <p>Free Shipping | 10% Off</p>
+                        </div>
+                    </div>
+                    <!-- Add more product cards here -->
+                
+                
+              
+                    <div class="card">
+                        <div class="card-image">
+                            <!-- Placeholder for image -->
+                            <img src="src/img/Oranges.jpg" alt="Product Image" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Oranges</h3>
+                            <p>₹100</p>
+                            <p>Free Shipping | 10% Off</p>
+                        </div>
+                    </div>
+                    <!-- Add more product cards here -->
+                
+
+                
+                    <div class="card">
+                        <div class="card-image">
+                            <!-- Placeholder for image -->
+                            <img src="src/img/grapes.jpg" alt="Product Image" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Grapes</h3>
+                            <p>₹100</p>
+                            <p>Free Shipping | 10% Off</p>
+                        </div>
+                    </div>
+                    <!-- Add more product cards here -->
+                
+                <!-- Add more products as needed -->
+            </div>
+        </div>
+    </main>
+
+    
+</body>
+</html>
