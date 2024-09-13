@@ -6,29 +6,63 @@
     <title>AgriBazaar - Filter</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="filter.css">
-    <script src="filter.js"></script>
+    <script src="filter.js" defer></script>
 </head>
 <body>
-    <header>
+    <header class="bg-primary text-white text-center py-3">
         <h1>AgriBazaar Connect</h1>
     </header>
-        <nav class="side-nav">
-            <ul>
-            <li><a href="login.html"><img src="src/img/login.png" alt="Login"></a></li>
-            <li><a href="index.html"><img src="src/img/home.png" alt="Home"></a></li>
-            <li><a href="product.html"><img src="src/img/products.png" alt="Products"></a></li>
-            <li><a href="userProfile.html"><img src="src/img/profile.png" alt="Profile"></a></li>
-            <li><a href="contacts.html"><img src="src/img/contact and support.png" alt="Contact"></a></li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <a class="navbar-brand" href="#">AgriBazaar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html"><img src="src/img/login.png" alt="Login" class="nav-icon"> Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><img src="src/img/home.png" alt="Home" class="nav-icon"> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="product.html"><img src="src/img/products.png" alt="Products" class="nav-icon"> Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="userProfile.html"><img src="src/img/profile.png" alt="Profile" class="nav-icon"> Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacts.html"><img src="src/img/contact and support.png" alt="Contact" class="nav-icon"> Contact</a>
+                </li>
             </ul>
-        </nav>
-  
+        </div>
+    </nav>
 
     <main class="container my-5">
         <div class="row">
             <div class="col-md-4">
-                <div class="filter-section card p-4">
+                <div class="filter-section card p-4 bg-light">
                     <h2 class="card-title">Filter Products</h2>
-                    
+
+                    <div class="filter-group">
+                        <h3>Category</h3>
+                        <select id="category-select" class="form-control">
+                            <option value="">Select Category</option>
+                            <option value="beverages">Beverages</option>
+                            <option value="cereals">Cereals</option>
+                            <option value="dryFruits">Dry Fruits</option>
+                            <option value="fibreCrops">Fibre Crops</option>
+                            <option value="forestProducts">Forest Products</option>
+                            <option value="fruits">Fruits</option>
+                            <option value="oilSeeds">Oil Seeds</option>
+                            <option value="oilsFats">Oils and Fats</option>
+                            <option value="other">Other</option>
+                            <option value="pulses">Pulses</option>
+                            <option value="spices">Spices</option>
+                            <option value="vegetables">Vegetables</option>
+                        </select>
+                    </div>
+
                     <div class="filter-group">
                         <h3>Price Range</h3>
                         <input type="range" id="price-range" min="0" max="500" step="10" value="250" class="custom-range">
@@ -67,48 +101,8 @@
 
             <div class="col-md-8">
                 <h2 class="mb-4">Products</h2>
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="src/img/Apples.jpg" class="card-img-top" alt="Apples">
-                            <div class="card-body">
-                                <h5 class="card-title">Apples</h5>
-                                <p class="card-text">₹100</p>
-                                <p class="card-text">Free Shipping | 10% Off</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="src/img/Banana.jpg" class="card-img-top" alt="Bananas">
-                            <div class="card-body">
-                                <h5 class="card-title">Bananas</h5>
-                                <p class="card-text">₹100</p>
-                                <p class="card-text">Free Shipping | 10% Off</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="src/img/Oranges.jpg" class="card-img-top" alt="Oranges">
-                            <div class="card-body">
-                                <h5 class="card-title">Oranges</h5>
-                                <p class="card-text">₹100</p>
-                                <p class="card-text">Free Shipping | 10% Off</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="src/img/grapes.jpg" class="card-img-top" alt="Grapes">
-                            <div class="card-body">
-                                <h5 class="card-title">Grapes</h5>
-                                <p class="card-text">₹100</p>
-                                <p class="card-text">Free Shipping | 10% Off</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Add more product cards here -->
+                <div id="products-container" class="row">
+                    <!-- Products will be dynamically inserted here -->
                 </div>
             </div>
         </div>
@@ -117,14 +111,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        // JavaScript for price range slider
-        const priceRange = document.getElementById('price-range');
-        const priceValue = document.getElementById('price-value');
-
-        priceRange.addEventListener('input', () => {
-            priceValue.textContent = priceRange.value;
-        });
-    </script>
+    <script src="filter.js" defer></script>
 </body>
 </html>

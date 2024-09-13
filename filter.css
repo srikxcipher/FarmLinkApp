@@ -1,3 +1,4 @@
+/* General Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,8 +10,9 @@ body {
     background-color: #f9f9f9;
 }
 
+/* Header Styles */
 header {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Updated to new color */
     color: white;
     padding: 20px;
     text-align: center;
@@ -18,19 +20,23 @@ header {
     z-index: 1000;
 }
 
+/* Navigation Bar Styles */
 .side-nav {
-    background-color: #333;
+    background-color: #333; /* Updated to new color */
     padding: 10px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: auto;
+    align-items: center;
+    height: 60px; /* Increased height for better spacing */
+    position: sticky; /* Stick the nav bar at the top */
+    top: 0;
     width: 100%;
-    position: sticky; /* Stick the nav bar to the top */
-    top: 0; /* Offset from the top */
-    z-index: 1000;
+    z-index: 1000; /* Ensure it stays above other content */
+    border-bottom: 1px solid #ddd; /* Optional: Add a border to separate it from content */
 }
 
+/* Navigation Links Styling */
 .side-nav ul {
     display: flex;
     list-style: none;
@@ -45,36 +51,40 @@ header {
     text-align: center;
 }
 
+.side-nav ul li a {
+    display: block; /* Ensure the link takes up space */
+}
+
 .side-nav ul li a img {
-    width: 40px; /* Adjust size as needed */
+    width: 40px; /* Adjust icon size */
     height: auto;
     display: block;
 }
 
-/* Filter Section */
+/* Filter Section Styles */
 .filter-section {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
 }
 
 .filter-group {
     margin-bottom: 20px;
 }
 
-.custom-range {
-    width: 100%;
+/* Card Styles */
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card {
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .card-img-top {
-    border-radius: 8px 8px 0 0;
+    height: 200px;
+    object-fit: cover;
 }
 
 .card-body {
@@ -82,23 +92,100 @@ header {
 }
 
 .card-title {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.card-title:hover {
+    color: #007bff;
 }
 
 .card-text {
     font-size: 1rem;
 }
 
-/* Responsive adjustments */
+/* Custom Range Styling */
+.custom-range {
+    background: #007bff;
+}
+
+/* Background Light */
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+/* Contact Section Styles */
+.contact-us {
+    padding: 40px 0;
+}
+
+.contact-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-form .form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Media Queries */
 @media (max-width: 768px) {
     .side-nav {
         flex-direction: row; /* Keep horizontal layout for mobile view */
         padding: 10px 0;
+        height: 50px; /* Adjust height for smaller screens */
     }
 
     .side-nav ul {
-        display: flex; /* Keep horizontal layout for mobile */
         flex-direction: row;
         justify-content: space-around;
     }
@@ -110,10 +197,14 @@ header {
 
 @media (max-width: 480px) {
     .side-nav ul li a img {
-        width: 30px; /* Adjust icon size for mobile view */
+        width: 30px; /* Adjust icon size for very small screens */
     }
 
-    .filter-section {
+    .contact-container {
         padding: 15px;
+    }
+
+    .contact-form button {
+        padding: 8px 16px;
     }
 }
