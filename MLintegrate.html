@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commodity Price Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="MLintegration.css">
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <h1 class="heading">AgriBaazarConnect</h1>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="side-nav">
+                <ul>
+                    <li><a href="login.html"><img src="src/img/login.png" alt="Login"></a></li>
+                    <li><a href="index.html"><img src="src/img/home.png" alt="Home"></a></li>
+                    <li><a href="product.html"><img src="src/img/products.png" alt="Products"></a></li>
+                    <li><a href="userProfile.html"><img src="src/img/profile.png" alt="Profile"></a></li>
+                    <li><a href="contacts.html"><img src="src/img/contact and support.png" alt="Contact"></a></li>
+                </ul>
+            </nav>
+            <main role="main" class="col-md-10 ml-sm-auto px-4">
+                <div class="container">
+                    <h1 class="mt-4">Commodity Price Prediction</h1>
+                    <div class="form-group">
+                        <label for="commodity">Enter Commodity Name:</label>
+                        <input type="text" id="commodity" name="commodity" class="form-control" placeholder="e.g., Banana">
+                    </div>
+                    <button onclick="predictPrice()" class="btn btn-primary">Predict Price</button>
+                    <div id="result" class="mt-3 result"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Script section -->
+    <script>
+        async function predictPrice() {
+            const commodity = document.getElementById('commodity').value;
+            const resultDiv = document.getElementById('result');
+            
+            if (!commodity) {
+                resultDiv.innerHTML = '<div class="error">Please enter a commodity name.</div>';
+                return;
+            }
+    
+            try {
+                const response = await fetch('http://127.0.0.1:5000/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ commodity }),
+                });
+                
+                const data = await response.json();
+                
+                if (data.predicted_price) {
+                    const adjustedPrice = (data.predicted_price / 100).toFixed(2);
+                    resultDiv.innerHTML = `<strong>Predicted Price:</strong> ₹${adjustedPrice}`;
+                } else {
+                    resultDiv.innerHTML = `<div class="error">${data.error}</div>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="error">An error occurred while making the request.</div>';
+            }
+        }
+    </script>
+</body>
+</html>

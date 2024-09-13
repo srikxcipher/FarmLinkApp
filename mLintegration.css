@@ -1,0 +1,106 @@
+/* MLintegration.css */
+body {
+    background-color: #f8f9fa;
+}
+
+.header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.heading {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Navigation Bar Styles */
+.side-nav {
+    background-color: #333;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px; /* Increased height for better spacing */
+    position: sticky; /* Stick the nav bar at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays above other content */
+    border-bottom: 1px solid #ddd; /* Optional: Add a border to separate it from content */
+}
+
+.side-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    justify-content: space-around; /* Space items evenly */
+}
+
+.side-nav ul li {
+    margin: 0 20px; /* Adjust horizontal spacing between icons */
+    text-align: center;
+}
+
+.side-nav ul li a {
+    display: block; /* Ensure the link takes up space */
+}
+
+.side-nav ul li a img {
+    width: 40px; /* Adjust icon size */
+    height: auto;
+    display: block;
+}
+/* Container Styles */
+.container {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-top: 1rem;
+}
+
+.btn-primary {
+    background-color:#007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #57d7fe;
+}
+
+.result {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .side-nav {
+        height: 50px; /* Adjust height for smaller screens */
+    }
+
+    .side-nav ul {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .side-nav ul li {
+        margin: 0 10px; /* Reduced spacing for mobile view */
+    }
+}
+
+@media (max-width: 480px) {
+    .side-nav ul li a img {
+        width: 30px; /* Adjust icon size for very small screens */
+    }
+}
