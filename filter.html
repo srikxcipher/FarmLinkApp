@@ -4,110 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriBazaar - Filter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="filter.css">
     <script src="filter.js"></script>
 </head>
 <body>
     <header>
-        <h1>AgriBazaar</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="product.html">Products</a>
-            <a href="filter.html" class="active">Filter</a>
-        </nav>
+        <h1>AgriBazaar Connect</h1>
     </header>
+        <nav class="side-nav">
+            <ul>
+            <li><a href="login.html"><img src="src/img/login.png" alt="Login"></a></li>
+            <li><a href="index.html"><img src="src/img/home.png" alt="Home"></a></li>
+            <li><a href="product.html"><img src="src/img/products.png" alt="Products"></a></li>
+            <li><a href="userProfile.html"><img src="src/img/profile.png" alt="Profile"></a></li>
+            <li><a href="contacts.html"><img src="src/img/contact and support.png" alt="Contact"></a></li>
+            
+            </ul>
+        </nav>
+  
 
-    <main>
-        <div class="container">
-            <div class="filter-section">
-                <h2>Filter Products</h2>
-                
-                <div class="filter-group">
-                    <h3>Price Range</h3>
-                    <input type="range" id="price-range" min="0" max="500" step="10" value="250">
-                    <p>Up to ₹<span id="price-value">250</span></p>
-                </div>
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="filter-section card p-4">
+                    <h2 class="card-title">Filter Products</h2>
+                    
+                    <div class="filter-group">
+                        <h3>Price Range</h3>
+                        <input type="range" id="price-range" min="0" max="500" step="10" value="250" class="custom-range">
+                        <p>Up to ₹<span id="price-value">250</span></p>
+                    </div>
 
-                <div class="filter-group">
-                    <h3>Offers</h3>
-                    <label><input type="checkbox" class="filter-offer" value="Free Shipping"> Free Shipping</label>
-                    <label><input type="checkbox" class="filter-offer" value="Buy 1 Get 1"> Buy 1 Get 1</label>
-                </div>
+                    <div class="filter-group">
+                        <h3>Offers</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="freeShipping" value="Free Shipping">
+                            <label class="form-check-label" for="freeShipping">Free Shipping</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="buy1Get1" value="Buy 1 Get 1">
+                            <label class="form-check-label" for="buy1Get1">Buy 1 Get 1</label>
+                        </div>
+                    </div>
 
-                <div class="filter-group">
-                    <h3>Discounts</h3>
-                    <label><input type="checkbox" class="filter-discount" value="10"> 10% Off</label>
-                    <label><input type="checkbox" class="filter-discount" value="20"> 20% Off</label>
-                    <label><input type="checkbox" class="filter-discount" value="30"> 30% Off</label>
+                    <div class="filter-group">
+                        <h3>Discounts</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="discount10" value="10">
+                            <label class="form-check-label" for="discount10">10% Off</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="discount20" value="20">
+                            <label class="form-check-label" for="discount20">20% Off</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="discount30" value="30">
+                            <label class="form-check-label" for="discount30">30% Off</label>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="products-section">
-                <h2>Products</h2>
-                <div class="product-container">
-                    <div class="card">
-                        <div class="card-image">
-                            <!-- Placeholder for image -->
-                            <img src="src/img/Apples.jpg" alt="Product Image" />
+            <div class="col-md-8">
+                <h2 class="mb-4">Products</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="src/img/Apples.jpg" class="card-img-top" alt="Apples">
+                            <div class="card-body">
+                                <h5 class="card-title">Apples</h5>
+                                <p class="card-text">₹100</p>
+                                <p class="card-text">Free Shipping | 10% Off</p>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <h3>Apples</h3>
-                            <p>₹100</p>
-                            <p>Free Shipping | 10% Off</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="src/img/Banana.jpg" class="card-img-top" alt="Bananas">
+                            <div class="card-body">
+                                <h5 class="card-title">Bananas</h5>
+                                <p class="card-text">₹100</p>
+                                <p class="card-text">Free Shipping | 10% Off</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="src/img/Oranges.jpg" class="card-img-top" alt="Oranges">
+                            <div class="card-body">
+                                <h5 class="card-title">Oranges</h5>
+                                <p class="card-text">₹100</p>
+                                <p class="card-text">Free Shipping | 10% Off</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="src/img/grapes.jpg" class="card-img-top" alt="Grapes">
+                            <div class="card-body">
+                                <h5 class="card-title">Grapes</h5>
+                                <p class="card-text">₹100</p>
+                                <p class="card-text">Free Shipping | 10% Off</p>
+                            </div>
                         </div>
                     </div>
                     <!-- Add more product cards here -->
-                
-                
-                
-                    <div class="card">
-                        <div class="card-image">
-                            <!-- Placeholder for image -->
-                            <img src="src/img/Banana.jpg" alt="Product Image" />
-                        </div>
-                        <div class="card-content">
-                            <h3>Bananas</h3>
-                            <p>₹100</p>
-                            <p>Free Shipping | 10% Off</p>
-                        </div>
-                    </div>
-                    <!-- Add more product cards here -->
-                
-                
-              
-                    <div class="card">
-                        <div class="card-image">
-                            <!-- Placeholder for image -->
-                            <img src="src/img/Oranges.jpg" alt="Product Image" />
-                        </div>
-                        <div class="card-content">
-                            <h3>Oranges</h3>
-                            <p>₹100</p>
-                            <p>Free Shipping | 10% Off</p>
-                        </div>
-                    </div>
-                    <!-- Add more product cards here -->
-                
-
-                
-                    <div class="card">
-                        <div class="card-image">
-                            <!-- Placeholder for image -->
-                            <img src="src/img/grapes.jpg" alt="Product Image" />
-                        </div>
-                        <div class="card-content">
-                            <h3>Grapes</h3>
-                            <p>₹100</p>
-                            <p>Free Shipping | 10% Off</p>
-                        </div>
-                    </div>
-                    <!-- Add more product cards here -->
-                
-                <!-- Add more products as needed -->
+                </div>
             </div>
         </div>
     </main>
 
-    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript for price range slider
+        const priceRange = document.getElementById('price-range');
+        const priceValue = document.getElementById('price-value');
+
+        priceRange.addEventListener('input', () => {
+            priceValue.textContent = priceRange.value;
+        });
+    </script>
 </body>
 </html>
