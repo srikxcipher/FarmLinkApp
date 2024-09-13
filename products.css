@@ -1,5 +1,3 @@
-/* styles.css */
-
 /* Reset some basic styles */
 * {
     box-sizing: border-box;
@@ -12,6 +10,7 @@ body {
     line-height: 1.6;
 }
 
+/* Header */
 header {
     background-color: #4CAF50;
     color: white;
@@ -19,10 +18,13 @@ header {
     text-align: center;
 }
 
+/* Main container with flexbox layout */
 .main-container {
     display: flex;
+    margin: 0; /* Remove any default margin */
 }
 
+/* Side navigation bar styling */
 .side-nav {
     width: 80px; /* Adjust width as needed */
     background-color: #333;
@@ -30,11 +32,19 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: sticky; /* Stick to the viewport */
+    top: 0; /* Stick to the top */
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Allow scrolling within the side-nav if content exceeds viewport height */
+    margin-top: 0; /* Ensure no extra margin is added at the top */
 }
 
+/* Side navigation list styling */
 .side-nav ul {
     list-style: none;
     width: 100%;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
 }
 
 .side-nav ul li {
@@ -49,16 +59,23 @@ header {
     margin: 0 auto;
 }
 
+/* Main content area styling */
 .content {
     flex: 1;
     padding: 20px;
+    margin-left: 80px; /* Ensure content is not hidden behind the side-nav */
 }
 
+/* Container for wrapping content */
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px; /* Add some padding around the content */
+    background-color: #f8f9fa; /* Light background for the main container */
+    border-radius: 8px; /* Rounded corners */
 }
 
+/* Heading styling for sections */
 h2 {
     margin-bottom: 20px;
 }
@@ -139,6 +156,7 @@ footer {
 @media (max-width: 768px) {
     .main-container {
         flex-direction: column;
+        margin: 0; /* Remove margin for smaller screens */
     }
 
     .side-nav {
@@ -146,12 +164,16 @@ footer {
         justify-content: space-around;
         width: 100%;
         padding: 10px 0;
+        height: auto; /* Allow height to be auto on smaller screens */
+        margin-top: 0; /* Ensure no extra margin is added at the top */
     }
 
     .side-nav ul {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
     }
 
     .side-nav ul li {
@@ -160,6 +182,7 @@ footer {
 
     .content {
         padding: 10px;
+        margin-left: 0; /* Remove margin for small screens */
     }
 }
 
@@ -171,18 +194,6 @@ footer {
     .btn {
         padding: 8px 16px;
     }
-}
-
-/* Main content styles */
-.product-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white; /* White background for the header */
-    padding: 10px 20px;
-    border-radius: 8px; /* Optional: rounded corners */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
-    margin-bottom: 20px;
 }
 
 /* Main content styles */
@@ -219,13 +230,3 @@ footer {
 .filter-btn:hover {
     background-color: #218838; /* Darker shade on hover */
 }
-
-/* Container styles to match the overall look */
-.container {
-    padding: 20px; /* Add some padding around the content */
-    background-color: #f8f9fa; /* Light background for the main container */
-    border-radius: 8px; /* Rounded corners */
-}
-
-
-
