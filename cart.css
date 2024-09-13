@@ -1,68 +1,135 @@
-body {
-    font-family: Arial, sans-serif;
+/* General Styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* Header Styles */
 header {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Matching Bootstrap success color */
     color: white;
-    padding: 10px 20px;
+    padding: 20px;
     text-align: center;
 }
 
-.cart-container {
-    margin: 20px;
-    padding: 10px;
-    background: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.cart-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-.cart-table th, .cart-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-.cart-table th {
-    background-color: #f8f8f8;
-    font-weight: bold;
-}
-
-.cart-actions {
+/* Navigation Bar Styles */
+.side-nav {
+    background-color: #333;
+    padding: 10px 0; /* Padding for vertical space */
     display: flex;
-    justify-content: space-between;
+    flex-direction: row; /* Horizontal layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Vertically center the items */
+    height: 60px; /* Increased height for better spacing */
+    position: sticky; /* Sticky position for scrolling effect */
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1000; /* Ensure it stays above other content */
+    width: 100%; /* Full width for horizontal layout */
 }
 
-.clear-btn, .checkout-btn {
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
+.side-nav ul {
+    display: flex; /* Horizontal layout */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    justify-content: space-around; /* Evenly space items */
 }
 
-.clear-btn {
-    background-color: #ff4d4d;
+.side-nav ul li {
+    margin: 0; /* Remove vertical margins */
+    text-align: center;
+}
+
+.side-nav ul li a {
+    display: block; /* Ensure the link takes up space */
+}
+
+.side-nav ul li a img {
+    width: 40px; /* Adjust icon size */
+    height: auto;
+    display: block;
+}
+
+/* Main Content */
+.table {
+    background-color: #fff;
+    margin-top: 20px; /* Space between header and table */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #ddd;
+}
+
+/* Cart Actions */
+.cart-actions .btn {
+    margin: 10px 5px; /* Space around buttons */
+    width: calc(50% - 10px); /* Buttons take up half width with margin */
+    max-width: 200px; /* Set max-width to avoid large buttons on wide screens */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
     color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
-.checkout-btn {
-    background-color: #4CAF50;
-    color: white;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .side-nav {
+        flex-direction: row; /* Keep horizontal layout for mobile view */
+        padding: 0 10px;
+        height: 50px; /* Adjust height for smaller screens */
+    }
+
+    .side-nav ul {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .side-nav ul li {
+        margin: 0 5px; /* Reduced spacing for mobile view */
+    }
+
+    .side-nav ul li a img {
+        width: 35px; /* Adjust icon size for smaller screens */
+    }
+
+    .table {
+        margin: 10px; /* Reduced margin around table */
+    }
+
+    .cart-actions .btn {
+        width: calc(100% - 20px); /* Full width buttons with margin */
+        max-width: none; /* Remove max-width on smaller screens */
+    }
 }
 
-.clear-btn:hover {
-    background-color: #e63939;
-}
+@media (max-width: 480px) {
+    .side-nav ul li a img {
+        width: 30px; /* Smaller icons for very small screens */
+    }
 
-.checkout-btn:hover {
-    background-color: #45a049;
+    .cart-actions .btn {
+        width: calc(100% - 20px); /* Full width buttons with margin */
+    }
+
+    .footer {
+        padding: 5px 0; /* Reduced padding for very small screens */
+    }
 }
