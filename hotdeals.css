@@ -1,59 +1,152 @@
-body {
-    font-family: Arial, sans-serif;
+/* General Styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-.hot-deals {
-    padding: 20px;
+body {
+    font-family: 'Roboto', sans-serif;
     background-color: #f9f9f9;
 }
 
-.section-title {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.deal-container {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding: 10px 0;
-}
-
-.deal-card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 200px;
+/* Header Styles */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
     text-align: center;
     position: relative;
+    z-index: 1000;
 }
 
-.deal-image {
+/* Navigation Bar Styles */
+.side-nav {
+    background-color: #333;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; /* Vertically center the items */
+    height: 50px; /* Fixed height for the nav bar */
     width: 100%;
+    position: sticky; /* Stick the nav bar to the top */
+    top: 0; /* Offset from the top */
+    z-index: 1000;
+    padding: 0 10px; /* Added horizontal padding */
+}
+
+.side-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    justify-content: space-around; /* Space items evenly */
+}
+
+.side-nav ul li {
+    margin: 0; /* Removed margin to fit within height */
+    text-align: center;
+}
+
+.side-nav ul li a img {
+    width: 40px; /* Adjust size as needed */
     height: auto;
     display: block;
 }
 
+/* Hot Deals Section */
+.hot-deals {
+    padding: 40px 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Deal Cards */
+.deal-card {
+    position: relative;
+    perspective: 1000px; /* Enable 3D perspective */
+}
+
+.deal-card .deal-image {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+
+.deal-card:hover .deal-image {
+    transform: rotateY(10deg) rotateX(10deg); /* 3D Effect */
+}
+
 .deal-info {
-    padding: 10px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateZ(50px);
+}
+
+.deal-card:hover .deal-info {
+    opacity: 1;
+    transform: translateZ(0);
 }
 
 .deal-title {
-    font-size: 1.2em;
-    margin: 10px 0;
+    font-size: 1.25rem;
+    color: #333;
 }
 
 .deal-price {
-    font-size: 1.1em;
-    color: #27ae60;
-    margin: 5px 0;
+    font-size: 1.5rem;
+    color: #4CAF50;
 }
 
 .deal-discount {
-    font-size: 0.9em;
-    color: #e74c3c;
+    font-size: 1rem;
+    color: red;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .side-nav {
+        flex-direction: row; /* Keep horizontal layout for mobile view */
+        padding: 0 10px;
+        height: 50px; /* Ensure consistent height */
+    }
+
+    .side-nav ul {
+        display: flex; /* Keep horizontal layout for mobile */
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .side-nav ul li {
+        margin: 0 10px; /* Reduced spacing for mobile view */
+    }
+}
+
+@media (max-width: 480px) {
+    .side-nav ul li a img {
+        width: 30px; /* Adjust icon size for mobile view */
+    }
+
+    .filter-section {
+        padding: 15px;
+    }
 }
