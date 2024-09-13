@@ -1,0 +1,148 @@
+/* Resetting margin and padding */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif; /* Use Arial as specified */
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+/* Header styling */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Main container styling */
+.main-container {
+    display: flex;
+    flex-direction: column; /* Stack header and nav vertically */
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* Navigation bar styling */
+.side-nav {
+    background-color: #333;
+    padding: 10px 0; /* Padding for vertical space */
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    justify-content: space-around; /* Evenly space items */
+    height: auto; /* Height adjusts based on content */
+    position: sticky; /* Sticky position for scrolling effect */
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1000; /* Ensure it stays above other content */
+    width: 100%; /* Full width for horizontal layout */
+}
+
+.side-nav ul {
+    display: flex; /* Horizontal layout */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    justify-content: space-around; /* Evenly space items */
+}
+
+.side-nav ul li {
+    margin: 0; /* Remove vertical margins */
+    text-align: center;
+}
+
+.side-nav ul li a img {
+    width: 40px; /* Adjust icon size */
+    height: auto;
+    display: block;
+}
+
+/* Adjust content padding */
+.content {
+    padding: 20px;
+    margin: 0; /* Remove margin for horizontal layout */
+}
+
+/* Card styling */
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center text inside card */
+}
+
+/* Footer styling */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* CTA Button styling */
+.cta-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.cta-button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .side-nav {
+        flex-direction: row; /* Maintain horizontal layout */
+        padding: 10px 0;
+        position: static; /* Static position for mobile */
+    }
+
+    .side-nav ul {
+        display: flex; /* Horizontal layout */
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .side-nav ul li a img {
+        width: 30px; /* Adjust icon size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .side-nav {
+        padding: 15px 0; /* Reduced padding for mobile */
+    }
+
+    .side-nav ul {
+        gap: 10px; /* Reduced gap between items */
+    }
+
+    .side-nav ul li a img {
+        width: 25px; /* Smaller icons for very small screens */
+    }
+
+    .card {
+        padding: 15px; /* Adjust card padding for small screens */
+    }
+
+    .cta-button {
+        padding: 8px 16px; /* Adjust button padding for small screens */
+    }
+}

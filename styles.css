@@ -19,32 +19,33 @@ header {
 
 .main-container {
     display: flex;
+    flex-direction: column; /* Adjust layout for horizontal nav */
     min-height: 100vh; /* Full viewport height */
 }
 
 /* Side Navigation */
 .side-nav {
-    width: 80px; /* Adjust width as needed */
     background-color: #333;
-    padding-top: 20px;
+    padding: 10px 0; /* Adjust padding to fit the horizontal layout */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh; /* Full height of the viewport */
-    position: fixed ; /* Fix to the side of the page */
-    top: 0;
-    left: 0;
+    flex-direction: row; /* Horizontal layout */
+    justify-content: space-around; /* Space items evenly */
+    height: auto; /* Reset height for horizontal layout */
+    position: static; /* Remove fixed position */
+    width: 100%; /* Full width to accommodate horizontal layout */
 }
 
 .side-nav ul {
+    display: flex; /* Horizontal layout */
     list-style: none;
     padding: 0;
     margin: 0;
     width: 100%;
+    justify-content: space-around; /* Space items evenly */
 }
 
 .side-nav ul li {
-    margin-bottom: 20px;
+    margin: 0; /* Remove vertical margins */
     text-align: center;
 }
 
@@ -52,14 +53,13 @@ header {
     width: 40px; /* Adjust size as needed */
     height: auto;
     display: block;
-    margin: 0 auto;
 }
 
-/* Adjust content padding to account for fixed side-nav */
+/* Adjust content padding to account for horizontal side-nav */
 .content {
     flex: 1;
     padding: 20px;
-    margin-left: 80px; /* Offset for fixed side-nav */
+    margin: 0; /* Remove margin for horizontal layout */
 }
 
 /* Carousel section */
@@ -150,7 +150,7 @@ header {
     margin-bottom: 20px;
 }
 
-/* Carousel */
+/* Product List */
 .product-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -206,10 +206,6 @@ header {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-}
-.gh{
-    display:flex;
-    justify-content: center;
 }
 
 .btn:hover {
@@ -298,47 +294,20 @@ footer {
 
 /* Responsive Media Queries */
 @media (max-width: 768px) {
-    .main-container {
-        flex-direction: column;
-        min-height: auto; /* Reset to default */
-    }
-
-    .sr-box {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .sr-box input {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .sr-box button {
-        width: 100%;
-    }
-
     .side-nav {
-        flex-direction: row;
-        justify-content: space-around;
-        width: 100%;
+        flex-direction: row; /* Keep horizontal layout for mobile view */
         padding: 10px 0;
-        height: auto; /* Reset height */
-        position: static; /* Reset fixed position */
+        position: static; /* Ensure the nav is static in mobile view */
     }
 
     .side-nav ul {
-        display: flex;
+        display: flex; /* Keep horizontal layout for mobile */
         flex-direction: row;
         justify-content: space-around;
     }
 
     .side-nav ul li {
         margin: 0;
-    }
-
-    .content {
-        padding: 10px;
-        margin-left: 0; /* Reset margin */
     }
 }
 
