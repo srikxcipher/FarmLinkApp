@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,17 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="contacts.css">
+    <!-- Review CSS -->
+    <link rel="stylesheet" href="review.css">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <h1>AgriBazaar Connect</h1>
     </header>
+
     <nav class="side-nav">
         <ul>
             <li><a href="login.html"><img src="src/img/login.png" alt="Login"></a></li>
@@ -24,6 +29,8 @@
             <li><a href="contacts.html"><img src="src/img/contact and support.png" alt="Contact"></a></li>
         </ul>
     </nav>
+
+    <!-- Contact Us Section -->
     <section class="contact-us">
         <div class="contact-container container">
             <h2 class="section-title">Contact Us</h2>
@@ -57,18 +64,65 @@
         </div>
     </section>
 
-     <!-- About Us Section -->
-     <section class="about-us text-center py-5">
+    <!-- Review Section -->
+    <section class="reviews py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Customer Reviews</h2>
+            <div class="row">
+                <!-- Review Form -->
+                <div class="col-md-6">
+                    <h3>Leave a Review</h3>
+                    <form class="review-form">
+                        <div class="form-group">
+                            <label for="reviewer-name">Your Name:</label>
+                            <input type="text" class="form-control" id="reviewer-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewer-message">Your Review:</label>
+                            <textarea class="form-control" id="reviewer-message" rows="4" required></textarea>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <p>Your Rating: <span id="rating-value">0</span></p>
+                        <script src="review.js"></script>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+                <!-- Display Reviews -->
+                <div class="col-md-6">
+                    <h3>Recent Reviews</h3>
+                    <ul class="list-group" id="review-list">
+                        <li class="list-group-item">
+                            <strong>Sarthak</strong> - "Excellent quality!" <span class="badge badge-success">5 Stars</span>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Jyoti</strong> - "Great service." <span class="badge badge-success">4 Stars</span>
+                        </li>
+                        <!-- Additional reviews will be listed here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us text-center py-5">
         <div class="container">
             <h2 class="section-title">About Us</h2>
             <p>Learn more about AgriBazaar, our mission, and our team.</p>
             <a href="about.html" class="btn btn-secondary">Read More</a>
         </div>
     </section>
-    
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
