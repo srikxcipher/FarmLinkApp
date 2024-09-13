@@ -34,11 +34,13 @@ header {
     display: flex;
     flex-direction: row; /* Horizontal layout */
     justify-content: space-around; /* Evenly space items */
-    height: auto; /* Height adjusts based on content */
+    align-items: center; /* Vertically center the items */
+    height: 60px; /* Fixed height for consistency */
     position: sticky; /* Sticky position for scrolling effect */
     top: 0; /* Stick to the top of the viewport */
     z-index: 1000; /* Ensure it stays above other content */
     width: 100%; /* Full width for horizontal layout */
+    border-bottom: 1px solid #ddd; /* Optional: Add a border to separate it from content */
 }
 
 .side-nav ul {
@@ -53,6 +55,10 @@ header {
 .side-nav ul li {
     margin: 0; /* Remove vertical margins */
     text-align: center;
+}
+
+.side-nav ul li a {
+    display: block; /* Ensure the link takes up space */
 }
 
 .side-nav ul li a img {
@@ -111,11 +117,9 @@ footer {
     .side-nav {
         flex-direction: row; /* Maintain horizontal layout */
         padding: 10px 0;
-        position: static; /* Static position for mobile */
     }
 
     .side-nav ul {
-        display: flex; /* Horizontal layout */
         flex-direction: row;
         justify-content: space-around;
     }

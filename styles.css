@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,22 +18,20 @@ header {
     text-align: center;
 }
 
-.main-container {
-    display: flex;
-    flex-direction: column; /* Adjust layout for horizontal nav */
-    min-height: 100vh; /* Full viewport height */
-}
-
-/* Side Navigation */
+/* Sticky Side Navigation */
 .side-nav {
     background-color: #333;
-    padding: 10px 0; /* Adjust padding to fit the horizontal layout */
+    color: white;
+    padding: 10px 0;
     display: flex;
     flex-direction: row; /* Horizontal layout */
     justify-content: space-around; /* Space items evenly */
-    height: auto; /* Reset height for horizontal layout */
-    position: static; /* Remove fixed position */
-    width: 100%; /* Full width to accommodate horizontal layout */
+    position: -webkit-sticky; /* For Safari */
+    position: sticky; /* For other browsers */
+    top: 0px; /* Adjust based on header height */
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it sits above other content */
 }
 
 .side-nav ul {
@@ -55,11 +54,10 @@ header {
     display: block;
 }
 
-/* Adjust content padding to account for horizontal side-nav */
+/* Adjust content padding to account for sticky side-nav */
 .content {
-    flex: 1;
     padding: 20px;
-    margin: 0; /* Remove margin for horizontal layout */
+    margin-top: 0px; /* Adjust based on header and side-nav height */
 }
 
 /* Carousel section */
@@ -104,6 +102,7 @@ header {
     right: 0;
 }
 
+/* Other Styles */
 .sr-bx {
     display: flex;
     justify-content: center;
@@ -297,7 +296,9 @@ footer {
     .side-nav {
         flex-direction: row; /* Keep horizontal layout for mobile view */
         padding: 10px 0;
-        position: static; /* Ensure the nav is static in mobile view */
+        position: -webkit-sticky; /* For Safari */
+        position: sticky; /* For other browsers */
+        top: 0px; /* Adjust based on header height */
     }
 
     .side-nav ul {

@@ -1,5 +1,3 @@
-/* usrProfile.css */
-
 /* Reset some basic styles */
 * {
     box-sizing: border-box;
@@ -16,13 +14,17 @@ body {
     background-color: #f9f9f9; /* Light background for the body */
 }
 
+/* Header */
 header {
     background-color: #4CAF50;
     color: white;
     padding: 20px;
     text-align: center;
+    position: relative;
+    z-index: 1000; /* Ensure header is above other content */
 }
 
+/* Main Container */
 .main-container {
     display: flex;
     flex: 1; /* Allow the main container to take available space */
@@ -37,11 +39,17 @@ header {
     flex-direction: column;
     align-items: center;
     height: 100vh; /* Full viewport height */
+    position: sticky; /* Stick the nav bar at the top */
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
+/* Navigation Links */
 .side-nav ul {
     list-style: none;
     width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .side-nav ul li {
@@ -56,7 +64,7 @@ header {
     margin: 0 auto;
 }
 
-/* Main content styling */
+/* Main Content */
 main {
     flex: 1;
     padding: 20px;
@@ -116,7 +124,7 @@ main {
     background-color: #45a049;
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
     text-align: center;
     margin-top: 30px;

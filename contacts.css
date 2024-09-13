@@ -1,3 +1,4 @@
+/* General Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,6 +10,7 @@ body {
     background-color: #f9f9f9;
 }
 
+/* Header Styles */
 header {
     background-color: #4CAF50;
     color: white;
@@ -18,19 +20,23 @@ header {
     z-index: 1000;
 }
 
+/* Navigation Bar Styles */
 .side-nav {
     background-color: #333;
     padding: 10px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: auto;
+    align-items: center;
+    height: 60px; /* Increased height for better spacing */
     position: sticky; /* Stick the nav bar at the top */
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1000; /* Ensure it stays above other content */
+    border-bottom: 1px solid #ddd; /* Optional: Add a border to separate it from content */
 }
 
+/* Navigation Links Styling */
 .side-nav ul {
     display: flex;
     list-style: none;
@@ -45,12 +51,17 @@ header {
     text-align: center;
 }
 
+.side-nav ul li a {
+    display: block; /* Ensure the link takes up space */
+}
+
 .side-nav ul li a img {
-    width: 40px; /* Adjust size as needed */
+    width: 40px; /* Adjust icon size */
     height: auto;
     display: block;
 }
 
+/* Contact Section Styles */
 .contact-us {
     padding: 40px 0;
 }
@@ -117,11 +128,10 @@ header {
     .side-nav {
         flex-direction: row; /* Keep horizontal layout for mobile view */
         padding: 10px 0;
-        position: static; /* Ensure the nav is static in mobile view */
+        height: 50px; /* Adjust height for smaller screens */
     }
 
     .side-nav ul {
-        display: flex; /* Keep horizontal layout for mobile */
         flex-direction: row;
         justify-content: space-around;
     }
@@ -133,7 +143,7 @@ header {
 
 @media (max-width: 480px) {
     .side-nav ul li a img {
-        width: 30px; /* Adjust icon size for mobile view */
+        width: 30px; /* Adjust icon size for very small screens */
     }
 
     .contact-container {
