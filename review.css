@@ -1,0 +1,16 @@
+.star-rating {
+    font-size: 2rem;
+    display: flex;
+    cursor: pointer;
+}
+
+.star {
+    color: lightgray;
+    transition: color 0.2s;
+}
+
+.star.selected,
+.star:hover,
+.star:hover ~ .star {
+    color: gold;
+}
