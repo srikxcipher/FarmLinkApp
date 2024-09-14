@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power BI Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS for responsiveness */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      flex: 1;
+      margin-top: 20px;
+      margin-bottom: 60px; /* Space for footer */
+    }
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      padding-top: 79.5%; /* Aspect ratio for 800 x 636 px */
+      height: 0; /* Important to keep the container height zero */
+      overflow: hidden;
+    }
+    .responsive-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    footer {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      height: 60px; /* Minimal height for footer */
+      line-height: 60px; /* Center text vertically */
+      background-color: #343a40;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bootstrap Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <!-- Add more nav items as needed -->
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Bootstrap Container -->
+  <div class="container">
+    <header class="text-center my-4">
+      <h1>Power BI Dashboard</h1>
+      <p class="lead">Interactive and Fully Responsive Dashboard</p>
+    </header>
+
+    <!-- Iframe Container -->
+    <div class="iframe-container">
+      <iframe 
+        class="responsive-iframe" 
+        src="https://app.powerbi.com/view?r=eyJrIjoiMDBiYzE3ZjktMGRlOS00MDE4LThiOWEtNzBiZjZkN2Y3MmVkIiwidCI6ImZiN2EzNjc0LWVmMDUtNDE2NC1hMTI5LTRhNGJhOTI4ODE4ZiJ9&embedImagePlaceholder=true" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Bootstrap Footer -->
+  <footer>
+    <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
