@@ -113,6 +113,19 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Sapota", img: "src/img/Sapota.jpg", price: Math.floor(Math.random() * 500), discounts: [20] },
             { name: "Watermelon", img: "src/img/Watermelon.jpg", price: Math.floor(Math.random() * 500), discounts: [30] }
         ],
+        oilSeeds: [
+            { name: "Groundnut", img: "src/img/Groundnut.jpg", price: Math.floor(Math.random() * 500), discounts: [0] },
+            { name: "Sunflower", img: "src/img/Sunflower.jpg", price: Math.floor(Math.random() * 500), discounts: [10] }
+        ],
+        oilsFats: [
+            { name: "Groundnut Oil", img: "src/img/GroundnutOil.jpg", price: Math.floor(Math.random() * 500), discounts: [0] },
+            { name: "Mustard Oil", img: "src/img/MustardOil.jpg", price: Math.floor(Math.random() * 500), discounts: [20] }
+        ],
+        other: [
+            { name: "Chilli", img: "src/img/Chilli.jpg", price: Math.floor(Math.random() * 500), discounts: [30] },
+            { name: "Onion", img: "src/img/Onion.jpg", price: Math.floor(Math.random() * 500), discounts: [0] },
+            { name: "Potato", img: "src/img/Potato.jpg", price: Math.floor(Math.random() * 500), discounts: [10] }
+        ],
         pulses: [
             { name: "Arhar Dal", img: "src/img/Arhar Dal.jpg", price: Math.floor(Math.random() * 500), discounts: [0] },
             { name: "Chana Dal", img: "src/img/Chana Dal.jpg", price: Math.floor(Math.random() * 500), discounts: [10] },
