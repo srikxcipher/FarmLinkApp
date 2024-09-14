@@ -42,35 +42,31 @@
       margin: 20px auto; /* Center the button */
       text-align: center;
     }
-    footer {
-      position: relative;
-      bottom: 0;
-      width: 100%;
-      height: 60px; /* Minimal height for footer */
-      line-height: 60px; /* Center text vertically */
-      background-color: #343a40;
+    /* Custom Navigation Bar Styles */
+    .navbar-custom {
+      background-color: #4CAF50; /* Custom color */
+      margin-bottom: 20px; /* Space between navbar and content */
+      z-index: 1000; /* Ensure navbar stays on top */
+    }
+    .navbar-custom .navbar-brand {
+      color: #fff;
+    }
+    .navbar-custom .navbar-nav .nav-link {
+      color: #fff;
+    }
+    .navbar-custom .navbar-nav .nav-link:hover {
+      color: #e2e6ea;
+    }
+    /* Custom Footer Styles */
+    .footer-custom {
+      background-color: #4CAF50; 
       color: #fff;
       text-align: center;
+      padding: 10px;
     }
   </style>
 </head>
 <body>
-
-  <!-- Bootstrap Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Dashboard</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <!-- Add more nav items as needed -->
-      </ul>
-    </div>
-  </nav>
 
   <!-- Bootstrap Container -->
   <div class="container">
@@ -78,6 +74,33 @@
       <h1>Power BI Dashboard</h1>
       <p class="lead">Interactive and Fully Responsive Dashboard</p>
     </header>
+
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+      <a class="navbar-brand" href="#">Dashboard</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="userProfile.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <!-- Iframe Container -->
     <div class="iframe-container">
@@ -95,8 +118,8 @@
   </div>
 
   <!-- Bootstrap Footer -->
-  <footer>
-    <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+  <footer class="footer-custom">
+    <p>&copy; AgriBazaar. All Rights Reserved.</p>
   </footer>
 
   <!-- Bootstrap JS and dependencies -->
