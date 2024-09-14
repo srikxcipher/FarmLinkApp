@@ -18,37 +18,32 @@ header {
     text-align: center;
 }
 
-/* Main container with flexbox layout */
-.main-container {
-    display: flex;
-    margin: 0; /* Remove any default margin */
-}
-
-/* Side navigation bar styling */
+/* Navigation Bar Styles */
 .side-nav {
-    width: 80px; /* Adjust width as needed */
     background-color: #333;
-    padding-top: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: sticky; /* Stick to the viewport */
-    top: 0; /* Stick to the top */
-    height: 100vh; /* Full viewport height */
-    overflow-y: auto; /* Allow scrolling within the side-nav if content exceeds viewport height */
-    margin-top: 0; /* Ensure no extra margin is added at the top */
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; /* Vertically center the items */
+    height: 50px; /* Fixed height for the nav bar */
+    width: 100%;
+    position: sticky; /* Stick the nav bar to the top */
+    top: 0; /* Offset from the top */
+    z-index: 1000;
+    padding: 0 10px; /* Added horizontal padding */
 }
 
-/* Side navigation list styling */
 .side-nav ul {
+    display: flex;
     list-style: none;
+    padding: 0;
+    margin: 0;
     width: 100%;
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+    justify-content: space-around; /* Space items evenly */
 }
 
 .side-nav ul li {
-    margin-bottom: 20px;
+    margin: 0; /* Removed margin to fit within height */
     text-align: center;
 }
 
@@ -56,14 +51,19 @@ header {
     width: 40px; /* Adjust size as needed */
     height: auto;
     display: block;
-    margin: 0 auto;
+}
+
+/* Main container with flexbox layout */
+.main-container {
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+    margin: 0; /* Remove any default margin */
 }
 
 /* Main content area styling */
 .content {
     flex: 1;
     padding: 20px;
-    margin-left: 80px; /* Ensure content is not hidden behind the side-nav */
 }
 
 /* Container for wrapping content */
@@ -154,41 +154,30 @@ footer {
 
 /* Responsive Media Queries */
 @media (max-width: 768px) {
-    .main-container {
-        flex-direction: column;
-        margin: 0; /* Remove margin for smaller screens */
-    }
-
     .side-nav {
-        flex-direction: row;
-        justify-content: space-around;
-        width: 100%;
-        padding: 10px 0;
-        height: auto; /* Allow height to be auto on smaller screens */
-        margin-top: 0; /* Ensure no extra margin is added at the top */
+        flex-direction: row; /* Keep horizontal layout for mobile view */
+        padding: 0 10px;
+        height: 50px; /* Ensure consistent height */
     }
 
     .side-nav ul {
-        display: flex;
+        display: flex; /* Keep horizontal layout for mobile */
         flex-direction: row;
         justify-content: space-around;
-        padding: 0; /* Remove default padding */
-        margin: 0; /* Remove default margin */
     }
 
     .side-nav ul li {
-        margin: 0;
+        margin: 0 10px; /* Reduced spacing for mobile view */
     }
 
     .content {
         padding: 10px;
-        margin-left: 0; /* Remove margin for small screens */
     }
 }
 
 @media (max-width: 480px) {
     .side-nav ul li a img {
-        width: 30px;
+        width: 30px; /* Adjust icon size for mobile view */
     }
 
     .btn {

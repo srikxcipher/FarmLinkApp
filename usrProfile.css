@@ -27,33 +27,36 @@ header {
 /* Main Container */
 .main-container {
     display: flex;
+    flex-direction: column; /* Ensure the container stacks content vertically */
     flex: 1; /* Allow the main container to take available space */
 }
 
-/* Side Navigation */
+/* Navigation Bar Styles */
 .side-nav {
-    width: 80px; /* Adjust width as needed */
     background-color: #333;
-    padding-top: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
+    flex-direction: row; /* Horizontal layout for the navbar */
+    justify-content: space-around;
+    align-items: center; /* Vertically center the items */
+    height: 50px; /* Fixed height for the navbar */
+    width: 100%;
     position: sticky; /* Stick the nav bar at the top */
     top: 0; /* Stick to the top of the viewport */
     z-index: 1000; /* Ensure it stays above other content */
+    padding: 0 10px; /* Added horizontal padding */
 }
 
-/* Navigation Links */
 .side-nav ul {
+    display: flex;
     list-style: none;
-    width: 100%;
     padding: 0;
     margin: 0;
+    width: 100%;
+    justify-content: space-around; /* Space items evenly */
 }
 
 .side-nav ul li {
-    margin-bottom: 20px;
+    margin: 0; /* Removed margin to fit within height */
     text-align: center;
 }
 
@@ -61,7 +64,6 @@ header {
     width: 40px; /* Adjust size as needed */
     height: auto;
     display: block;
-    margin: 0 auto;
 }
 
 /* Main Content */
@@ -136,26 +138,20 @@ footer {
 
 /* Responsive Media Queries */
 @media (max-width: 768px) {
-    .main-container {
-        flex-direction: column;
-    }
-
     .side-nav {
-        flex-direction: row;
-        justify-content: space-around;
-        width: 100%;
-        padding: 10px 0;
-        height: auto; /* Reset height for smaller screens */
+        flex-direction: row; /* Keep horizontal layout for mobile view */
+        padding: 0 10px;
+        height: 50px; /* Ensure consistent height */
     }
 
     .side-nav ul {
-        display: flex;
+        display: flex; /* Keep horizontal layout for mobile */
         flex-direction: row;
         justify-content: space-around;
     }
 
     .side-nav ul li {
-        margin: 0;
+        margin: 0 10px; /* Reduced spacing for mobile view */
     }
 
     main {
@@ -165,7 +161,7 @@ footer {
 
 @media (max-width: 480px) {
     .side-nav ul li a img {
-        width: 30px;
+        width: 30px; /* Adjust icon size for mobile view */
     }
 
     .btn {
