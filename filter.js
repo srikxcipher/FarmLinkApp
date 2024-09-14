@@ -18,31 +18,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
         productsContainer.innerHTML = '';
 
-        if (category && products[category]) {
-            products[category].forEach(product => {
-                const isInPriceRange = product.price <= maxPrice;
-                const hasSelectedDiscount = 
-                    (has10Discount && product.discounts.includes(10)) ||
-                    (has20Discount && product.discounts.includes(20)) ||
-                    (has30Discount && product.discounts.includes(30)) ||
-                    (!has10Discount && !has20Discount && !has30Discount);
+        // Create an array to store all products (if "All Categories" is selected)
+        let filteredProducts = [];
 
-                if (isInPriceRange && hasSelectedDiscount) {
-                    const card = document.createElement('div');
-                    card.classList.add('col-md-4', 'mb-4');
-                    card.innerHTML = `
-                        <div class="card shadow-sm">
-                            <img src="${product.img}" class="card-img-top" alt="${product.name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${product.name}</h5>
-                                <p class="card-text text-muted">₹${product.price}</p>
-                            </div>
-                        </div>
-                    `;
-                    productsContainer.appendChild(card);
-                }
+        if (category === 'all') {
+            // Combine all products from every category into one array
+            Object.values(products).forEach(categoryProducts => {
+                filteredProducts = filteredProducts.concat(categoryProducts);
             });
+        } else if (category && products[category]) {
+            // If a specific category is selected, use its products
+            filteredProducts = products[category];
         }
+
+        // Filter products based on price range and discounts
+        filteredProducts.forEach(product => {
+            const isInPriceRange = product.price <= maxPrice;
+            const hasSelectedDiscount = 
+                (has10Discount && product.discounts.includes(10)) ||
+                (has20Discount && product.discounts.includes(20)) ||
+                (has30Discount && product.discounts.includes(30)) ||
+                (!has10Discount && !has20Discount && !has30Discount);
+
+            if (isInPriceRange && hasSelectedDiscount) {
+                const card = document.createElement('div');
+                card.classList.add('col-md-4', 'mb-4');
+                card.innerHTML = `
+                    <div class="card shadow-sm">
+                        <img src="${product.img}" class="card-img-top" alt="${product.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.name}</h5>
+                            <p class="card-text text-muted">₹${product.price}</p>
+                        </div>
+                    </div>
+                `;
+                productsContainer.appendChild(card);
+            }
+        });
     }
 
     // Update the price display and filter products on slider input
@@ -113,19 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Sapota", img: "src/img/Sapota.jpg", price: Math.floor(Math.random() * 500), discounts: [20] },
             { name: "Watermelon", img: "src/img/Watermelon.jpg", price: Math.floor(Math.random() * 500), discounts: [30] }
         ],
-        oilSeeds: [
-            { name: "Groundnut", img: "src/img/Groundnut.jpg", price: Math.floor(Math.random() * 500), discounts: [0] },
-            { name: "Sunflower", img: "src/img/Sunflower.jpg", price: Math.floor(Math.random() * 500), discounts: [10] }
-        ],
-        oilsFats: [
-            { name: "Groundnut Oil", img: "src/img/GroundnutOil.jpg", price: Math.floor(Math.random() * 500), discounts: [0] },
-            { name: "Mustard Oil", img: "src/img/MustardOil.jpg", price: Math.floor(Math.random() * 500), discounts: [20] }
-        ],
-        other: [
-            { name: "Chilli", img: "src/img/Chilli.jpg", price: Math.floor(Math.random() * 500), discounts: [30] },
-            { name: "Onion", img: "src/img/Onion.jpg", price: Math.floor(Math.random() * 500), discounts: [0] },
-            { name: "Potato", img: "src/img/Potato.jpg", price: Math.floor(Math.random() * 500), discounts: [10] }
-        ],
         pulses: [
             { name: "Arhar Dal", img: "src/img/Arhar Dal.jpg", price: Math.floor(Math.random() * 500), discounts: [0] },
             { name: "Chana Dal", img: "src/img/Chana Dal.jpg", price: Math.floor(Math.random() * 500), discounts: [10] },
@@ -151,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Carrot", img: "src/img/Carrot.jpg", price: Math.floor(Math.random() * 500), discounts: [30] },
             { name: "Cauliflower", img: "src/img/Cauliflower.jpg", price: Math.floor(Math.random() * 500), discounts: [0] },
             { name: "Corn", img: "src/img/Corn.jpg", price: Math.floor(Math.random() * 500), discounts: [10] },
-            { name: "Cucumber", img: "src/img/Cucumber.jpg", price: Math.floor(Math.random() * 500), discounts: [20] },
+            { name: "Cucumber", img: "src/img/ucumber.jpg", price: Math.floor(Math.random() * 500), discounts: [20] },
             { name: "Pumpkin", img: "src/img/Pumpkin.jpg", price: Math.floor(Math.random() * 500), discounts: [30] },
             { name: "Tomato", img: "src/img/Tomato.jpg", price: Math.floor(Math.random() * 500), discounts: [0] }
         ]
