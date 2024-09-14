@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="listing.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Product Listing Page</h1>
+    </header>
+    <nav class="side-nav">
+        <ul>
+            <li><a href="login.html"><img src="src/img/login.png" alt="Login"></a></li>
+            <li><a href="index.html"><img src="src/img/home.png" alt="Home"></a></li>
+            <li><a href="product.html"><img src="src/img/products.png" alt="Products"></a></li>
+            <li><a href="userProfile.html"><img src="src/img/profile.png" alt="Profile"></a></li>
+            <li><a href="contacts.html"><img src="src/img/contact and support.png" alt="Contact"></a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <br>
+        <h2>Select Commodities</h2>
+        <form id="commodity-form">
+            <div class="form-group">
+                <label for="commodity-category">Category:</label>
+                <select id="commodity-category" class="form-control">
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="Beverages">Beverages</option>
+                    <option value="Cereals">Cereals</option>
+                    <option value="Dry Fruit">Dry Fruit</option>
+                    <option value="Fibre Crops">Fibre Crops</option>
+                    <option value="Forest Products">Forest Products</option>
+                    <option value="Fruits">Fruits</option>
+                    <option value="Oil Seeds">Oil Seeds</option>
+                    <option value="Oils and Fats">Oils and Fats</option>
+                    <option value="Other">Other</option>
+                    <option value="Pulses">Pulses</option>
+                    <option value="Spices">Spices</option>
+                    <option value="Vegetables">Vegetables</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="commodity-item">Commodity:</label>
+                <select id="commodity-item" class="form-control" disabled>
+                    <!-- Options will be populated dynamically -->
+                </select>
+            </div>
+            <div class="btn-container">
+                <button type="button" class="btn btn-primary" id="add-commodity">Add Commodity</button>
+                <button type="button" class="btn btn-secondary" id="clear-list">Clear List</button>
+                <button type="button" class="btn btn-success" id="proceed-list">Proceed to List</button>
+            </div>
+        </form>
+        <div class="commodity-list">
+            <h3>Selected Commodities</h3>
+            <ul id="commodity-list" class="list-group">
+                <!-- List items will be added here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        const commodities = {
+            "Beverages": ["Tea", "Coffee"],
+            "Cereals": ["Bajra(Pearl Millet/Cumbu)", "Barley (Jau)", "Jowar(Sorghum)", "Maize", "Paddy(Dhan)(Basmati)", "Paddy(Dhan)(Common)", "Ragi (Finger Millet)", "Rice", "Wheat"],
+            "Dry Fruit": ["Almond(Badam)", "Cashewnuts"],
+            "Fibre Crops": ["Cotton", "Jute"],
+            "Forest Products": ["Bay leaf (Tejpatta)", "Neem Seed", "Tamarind Fruit", "Tamarind Seed", "Wood"],
+            "Fruits": ["Amla(Nelli Kai)", "Apple", "Banana", "Chikoos(Sapota)", "Custard Apple (Sharifa)", "Grapes", "Guava", "Jack Fruit", "Jamun(Narale Hannu)", "Karbuja(Musk Melon)", "Kinnow", "Lime", "Mango", "Marasebu", "Mousambi(Sweet Lime)", "Orange", "Papaya", "Peach", "Pear(Marasebu)", "Pineapple", "Plum", "Pomegranate", "Tender Coconut", "Water Melon"],
+            "Oil Seeds": ["Castor Seed", "Coconut Seed", "Copra", "Ground Nut Seed", "Groundnut", "Groundnut (Split)", "Honge seed", "Linseed", "Mustard", "Safflower", "Sesamum(Sesame,Gingelly,Til)", "Soyabean", "Sunflower"],
+            "Oils and Fats": ["Coconut Oil", "Ghee", "Mustard Oil"],
+            "Other": ["Broken Rice", "Bunch Beans", "Dhaincha", "Dry Fodder", "Fig(Anjura/Anjeer)", "Green Fodder", "Gur(Jaggery)", "Mahedi", "Millets", "Sugar"],
+            "Pulses": ["Alasande Gram", "Arhar (Tur/Red Gram)(Whole)", "Arhar Dal(Tur Dal)", "Avare Dal", "Beans", "Bengal Gram Dal (Chana Dal)", "Bengal Gram(Gram)(Whole)", "Black Gram (Urd Beans)(Whole)", "Black Gram Dal (Urd Dal)", "Chennangi Dal", "Green Gram (Moong)(Whole)", "Green Gram Dal (Moong Dal)", "Green Peas", "Guar Seed(Cluster Beans Seed)", "Kabuli Chana(Chickpeas-White)", "Kulthi(Horse Gram)", "Lak(Teora)", "Lentil (Masur)(Whole)", "Masur Dal", "Mataki", "Moath Dal", "Peas(Dry)", "Red Gram", "White Peas"],
+            "Spices": ["Ajwan", "Black pepper", "Cardamoms", "Chili Red", "Cinamon(Dalchini)", "Cloves", "Coconut", "Corriander seed", "Cummin Seed(Jeera)", "Dry Chillies", "Garlic", "Ginger(Dry)", "Methi Seeds", "Nutmeg", "Pepper garbled", "Pepper ungarbled", "Soanf", "Turmeric"],
+            "Vegetables": ["Alsandikai", "Amaranthus", "Ashgourd", "Banana - Green", "Beetroot", "Bhindi(Ladies Finger)", "Bitter gourd", "Bottle gourd", "Brinjal", "Cabbage", "Capsicum", "Carrot", "Cauliflower", "Chapparad Avare", "Chilly Capsicum", "Chow Chow", "Cluster beans", "Colacasia", "Coriander(Leaves)", "Cowpea(Veg)", "Cucumbar(Kheera)", "Drumstick", "Duster Beans", "Elephant Yam (Suran)", "Field Pea", "French Beans (Frasbean)", "Ginger(Green)", "Gram Raw(Chholia)", "Green Avare (W)", "Green Chilli", "Groundnut pods (raw)", "Guar", "Indian Beans (Seam)", "Kartali (Kantola)", "Knool Khol", "Leafy Vegetable", "Lemon", "Little gourd (Kundru)", "Long Melon(Kakri)", "Lotus Sticks", "Mango (Raw-Ripe)", "Mashrooms", "Methi(Leaves)", "Mint(Pudina)", "Onion", "Onion Green", "Papaya (Raw)", "Peas cod", "Peas Wet", "Pegeon Pea (Arhar Fali)", "Pointed gourd (Parval)", "Potato", "Pumpkin", "Raddish", "Ridgeguard(Tori)", "Round gourd", "Season Leaves", "Seemebadnekai", "Snakeguard", "Spinach", "Sponge gourd", "Squash(Chappal Kadoo)", "Surat Beans (Papadi)", "Suvarna Gadde", "Sweet Potato", "Sweet Pumpkin", "Tapioca", "Thondekai", "Tinda", "Tomato", "Turmeric (raw)", "Turnip", "White Pumpkin", "Yam (Ratalu)"]
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const categorySelect = document.getElementById('commodity-category');
+            const itemSelect = document.getElementById('commodity-item');
+            const commodityList = document.getElementById('commodity-list');
+            const addCommodityButton = document.getElementById('add-commodity');
+            const clearListButton = document.getElementById('clear-list');
+            const proceedListButton = document.getElementById('proceed-list');
+
+            categorySelect.addEventListener('change', function() {
+                const selectedCategory = categorySelect.value;
+                itemSelect.innerHTML = '<option value="" disabled selected>Select Commodity</option>';
+
+                if (selectedCategory) {
+                    commodities[selectedCategory].forEach(commodity => {
+                        const option = document.createElement('option');
+                        option.value = commodity;
+                        option.textContent = commodity;
+                        itemSelect.appendChild(option);
+                    });
+                    itemSelect.disabled = false;
+                } else {
+                    itemSelect.disabled = true;
+                }
+            });
+
+            addCommodityButton.addEventListener('click', function() {
+                const selectedCommodity = itemSelect.value;
+                if (selectedCommodity) {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = selectedCommodity;
+                    listItem.className = 'list-group-item commodity-item';
+                    commodityList.appendChild(listItem);
+                    itemSelect.value = ''; // Reset selection
+                    itemSelect.disabled = true;
+                    categorySelect.value = '';
+                }
+            });
+
+            clearListButton.addEventListener('click', function() {
+                commodityList.innerHTML = ''; // Clear the list
+            });
+
+            proceedListButton.addEventListener('click', function() {
+                const selectedCommodities = Array.from(commodityList.children).map(item => item.textContent);
+                if (selectedCommodities.length > 0) {
+                    alert('Proceeding with: ' + selectedCommodities.join(', '));
+                    // Optionally, you can send the selected commodities to another page or server here
+                    // Example: window.location.href = 'products-page.html?commodities=' + encodeURIComponent(selectedCommodities.join(','));
+                } else {
+                    alert('Please add some commodities before proceeding.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

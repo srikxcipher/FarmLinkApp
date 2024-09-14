@@ -1,0 +1,127 @@
+/* listing.css */
+
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    flex-direction: column; /* Adjust layout for horizontal nav */
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* Side Navigation */
+.side-nav {
+    background-color: #333;
+    padding: 10px 0; /* Adjust padding */
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    justify-content: space-around; /* Space items evenly */
+    width: 100%; /* Full width to accommodate horizontal layout */
+    position: static; /* Static position */
+}
+
+.side-nav ul {
+    display: flex; /* Horizontal layout */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    justify-content: space-around; /* Space items evenly */
+}
+
+.side-nav ul li {
+    margin: 0; /* Remove margins */
+    text-align: center;
+}
+
+.side-nav ul li a img {
+    width: 40px; /* Adjust size */
+    height: auto;
+    display: block;
+}
+
+/* Content Padding */
+.content {
+    flex: 1;
+    padding: 20px;
+    margin: 0; /* Remove margin */
+}
+
+/* Form and Button Styles */
+.form-control {
+    margin-bottom: 10px;
+}
+
+.commodity-list {
+    margin-top: 20px;
+}
+
+.commodity-item {
+    margin-bottom: 10px;
+}
+
+.btn-container {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .side-nav {
+        flex-direction: row; /* Keep horizontal layout */
+    }
+
+    .side-nav ul {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .side-nav ul li {
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .side-nav ul li a img {
+        width: 30px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+    }
+}

@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.side-nav {
+    background-color: #333;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    top: 80px; /* Adjusted to be below the header */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid #ddd; /* Optional: Add a border to separate it from content */
+}
+
+.side-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.side-nav ul li {
+    margin: 0 20px;
+    text-align: center;
+}
+
+.side-nav ul li a {
+    display: block;
+}
+
+.side-nav ul li a img {
+    width: 40px;
+    height: auto;
+    display: block;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 140px); /* Adjust height to fit below header and nav */
+    padding: 20px;
+    margin-top: 140px; /* Adjust margin to account for the fixed header and nav */
+    gap: 10px; /* Minimal gap between the buttons */
+}
+
+.btn-3d {
+    position: relative;
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    background-color: #007bff;
+    border-radius: 10px;
+    padding: 15px 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-3d::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.btn-3d:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.btn-3d:hover::after {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0;
+}
+
+/* Responsive header */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-3d {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+/* Ensures horizontal layout on all screen sizes */
+@media (max-width: 768px) {
+    .side-nav ul {
+        flex-direction: row; /* Ensure horizontal layout */
+    }
+
+    .side-nav ul li {
+        margin: 0 5px; /* Adjust margin for smaller screens */
+    }
+}

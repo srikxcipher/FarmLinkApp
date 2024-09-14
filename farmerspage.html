@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer's Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        /* Navigation Bar Styles */
+        .side-nav {
+            background-color: #333;
+            padding: 10px 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: 60px;
+            position: fixed;
+            top: 80px; /* Adjusted to be below the header */
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #ddd; /* Optional: Add a border to separate it from content */
+        }
+
+        /* Navigation Links Styling */
+        .side-nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .side-nav ul li {
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        .side-nav ul li a {
+            display: block;
+        }
+
+        .side-nav ul li a img {
+            width: 40px;
+            height: auto;
+            display: block;
+        }
+
+        /* Content Styling */
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 140px); /* Adjust height to fit below header and nav */
+            padding: 20px;
+            margin-top: 140px; /* Adjust margin to account for the fixed header and nav */
+        }
+
+        .btn-3d {
+            position: relative;
+            display: inline-block;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            background-color: #007bff;
+            border-radius: 10px;
+            padding: 15px 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn-3d::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .btn-3d:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .btn-3d:hover::after {
+            transform: translate(-50%, -50%) scale(1.1);
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Farmer's Page</h1>
+    </header>
+    <nav class="side-nav">
+        <ul>
+            <li><a href="login.html"><img src="src/img/login.png" alt="Login"></a></li>
+            <li><a href="index.html"><img src="src/img/home.png" alt="Home"></a></li>
+            <li><a href="product.html"><img src="src/img/products.png" alt="Products"></a></li>
+            <li><a href="userProfile.html"><img src="src/img/profile.png" alt="Profile"></a></li>
+            <li><a href="contacts.html"><img src="src/img/contact and support.png" alt="Contact"></a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <a href="product-listing.html" class="btn btn-3d">Continue as Seller</a>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
