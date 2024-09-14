@@ -11,6 +11,7 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa; /* Set a background color to avoid visual artifacts */
         }
         header {
             background-color: #4CAF50;
@@ -69,26 +70,31 @@
         /* Content Styling */
         .content {
             display: flex;
+            flex-direction: column; /* Changed to column to accommodate new sections */
             align-items: center;
             justify-content: center;
-            height: calc(100vh - 140px); /* Adjust height to fit below header and nav */
+            height: calc(100vh - 200px); /* Adjust height to fit below header and nav */
             padding: 20px;
             margin-top: 140px; /* Adjust margin to account for the fixed header and nav */
         }
 
-        .btn-3d {
-            position: relative;
-            display: inline-block;
+        .btn-3d, .btn-price-prediction {
             font-size: 1.25rem;
             font-weight: 600;
             text-align: center;
             color: #fff;
             text-decoration: none;
-            background-color: #007bff;
             border-radius: 10px;
             padding: 15px 30px;
+            position: relative; /* Required for ::after positioning */
             transition: transform 0.3s, box-shadow 0.3s;
+            margin: 10px; /* Add space between buttons */
         }
+
+        .btn-3d {
+            background-color: #007bff;
+        }
+
         .btn-3d::after {
             content: '';
             position: absolute;
@@ -96,19 +102,61 @@
             left: 50%;
             width: 120%;
             height: 120%;
-            background: rgba(0,0,0,0.1);
+            background: rgba(0,0,0,0.05); /* Adjusted opacity for smoother effect */
             border-radius: 10px;
             transform: translate(-50%, -50%);
             z-index: -1;
             transition: transform 0.3s, opacity 0.3s;
         }
+
         .btn-3d:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
+
         .btn-3d:hover::after {
             transform: translate(-50%, -50%) scale(1.1);
             opacity: 0;
+        }
+
+        .btn-price-prediction {
+            background-color: #28a745;
+        }
+
+        .btn-price-prediction::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
+            background: rgba(0,0,0,0.05); /* Adjusted opacity for smoother effect */
+            border-radius: 10px;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .btn-price-prediction:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .btn-price-prediction:hover::after {
+            transform: translate(-50%, -50%) scale(1.1);
+            opacity: 0;
+        }
+
+        .price-section {
+            margin-top: 30px; /* Added margin-top to separate content */
+            margin-bottom: 30px; /* Added margin-bottom for visual balance */
+        }
+
+        .price-section p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -127,6 +175,15 @@
     </nav>
     <div class="content">
         <a href="product-listing.html" class="btn btn-3d">Continue as Seller</a>
+        
+        <!-- New Section -->
+        <div class="price-section text-center">
+            <p>Click here to know the current prices of commodities.</p>
+            <!-- <a href="current-prices.html" class="btn btn-3d">Check Prices</a> -->
+        </div>
+
+        <!-- Price Prediction Button -->
+        <a href="MLintegrate.html" class="btn btn-price-prediction">Price Prediction</a>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
