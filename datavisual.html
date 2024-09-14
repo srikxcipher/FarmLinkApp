@@ -36,6 +36,12 @@
       height: 100%;
       border: none;
     }
+    .refresh-btn {
+      display: block;
+      width: 200px;
+      margin: 20px auto; /* Center the button */
+      text-align: center;
+    }
     footer {
       position: relative;
       bottom: 0;
@@ -80,6 +86,11 @@
         src="https://app.powerbi.com/view?r=eyJrIjoiMDBiYzE3ZjktMGRlOS00MDE4LThiOWEtNzBiZjZkN2Y3MmVkIiwidCI6ImZiN2EzNjc0LWVmMDUtNDE2NC1hMTI5LTRhNGJhOTI4ODE4ZiJ9&embedImagePlaceholder=true" 
         allowfullscreen>
       </iframe>
+    </div>
+    
+    <!-- Refresh Button -->
+    <div class="text-center">
+      <button class="btn btn-primary refresh-btn" onclick="window.location.reload();">Refresh Page</button>
     </div>
   </div>
 
