@@ -11,4 +11,6 @@ router.use(cors());
 // Test route to check if routing is working
 router.get('/test', (req, res) => {
     res.send('Test route is working!');
-  });
+});
+// Register a new user
+router.post('/register', registerUser);
