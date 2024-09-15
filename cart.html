@@ -19,15 +19,14 @@
 
     <!-- Navigation Bar -->
     <nav class="side-nav">
-    <ul>
-        <li><a href="login.html"><img src="src/img/login.png" alt="Login"></a></li>
-        <li><a href="index.html"><img src="src/img/home.png" alt="Home"></a></li>
-        <li><a href="product.html"><img src="src/img/products.png" alt="Products"></a></li>
-        <li><a href="userProfile.html"><img src="src/img/profile.png" alt="Profile"></a></li>
-        <li><a href="contacts.html"><img src="src/img/contact and support.png" alt="Contact"></a></li>
-    </ul>
+        <ul>
+            <li><a href="login.html"><img src="src/img/login.png" alt="Login"></a></li>
+            <li><a href="index.html"><img src="src/img/home.png" alt="Home"></a></li>
+            <li><a href="product.html"><img src="src/img/products.png" alt="Products"></a></li>
+            <li><a href="userProfile.html"><img src="src/img/profile.png" alt="Profile"></a></li>
+            <li><a href="contacts.html"><img src="src/img/contact and support.png" alt="Contact"></a></li>
+        </ul>
     </nav>
-
 
     <!-- Main Content -->
     <main class="container my-5">
@@ -43,12 +42,8 @@
             </thead>
             <tbody id="cart-items">
                 <!-- Cart items will be populated here dynamically -->
-                <tr>
-                    <td>Sample Product</td>
-                    <td>100</td>
-                    <td>2</td>
-                    <td>200</td>
-                    <td><button class="btn btn-danger btn-sm">Remove</button></td>
+                <tr id="cart-message">
+                    <!-- Message for empty cart will appear here -->
                 </tr>
             </tbody>
         </table>
