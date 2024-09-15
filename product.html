@@ -41,9 +41,9 @@
                     <button class="filter-btn" onclick="location.href='filter.html'">Filter Options</button>
                     <button class="filter-btn" onclick="location.href='cart.html'">My Cart</button>
                 </header>
-                <!-- <div class="added-product-list"> -->
-                    <!-- Product cards will be rendered here -->
-                <!-- </div> -->
+                <div class="product-list" id="added-product-list">
+                <!-- Product cards will be rendered here -->
+                </div>
                 <div class="product-list">
                     <!-- Product cards here -->
                     <article class="product-card" id="added-product-list">
@@ -81,15 +81,27 @@
     </footer>
 
     <script>
-                // Render products as cards
-            function renderProducts(products) {
+        // Fetch products from the backend
+        async function fetchProducts() {
+            try {
+                const response = await fetch('http://localhost:5000/api/products/retrieve');
+                const products = await response.json();
+
+                // Render products
+                renderProducts(products);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+        // Render products as cards
+        function renderProducts(products) {
             const productList = document.getElementById('added-product-list');
             productList.innerHTML = '';
 
             products.forEach(product => {
                 const productCard = document.createElement('article');
                 productCard.classList.add('product-card');
-                
+
                 productCard.innerHTML = `
                     <img src="src/img/${product.name}.jpg" alt="${product.name}">
                     <h3>${product.name}</h3>
