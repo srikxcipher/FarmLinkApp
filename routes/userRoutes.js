@@ -16,3 +16,25 @@ router.get('/test', (req, res) => {
 router.post('/register', registerUser);
 //adding login route 
 router.post('/login', loginUser);
+//adding a route to display user information on login dashboard
+router.get('/profileinfo',authenticateToken, async (req, res) => {
+    try {
+      // Assuming you use JWT and have a way to extract user ID from the token
+      const userId = req.user.id; // This requires middleware to extract user ID from the token
+  
+      const user = await User.findById(userId);
+      if (!user) {
+        return res.status(404).json({ msg: 'User not found' });
+      }
+  
+      res.json({
+        name: user.name,
+        email: user.email,
+        //phone: user.phone, // Make sure you have a phone field in your schema
+        //address: user.address // Make sure you have an address field in your schema
+      });
+    } catch (err) {
+      console.error('Server error:', err.message);
+      res.status(500).send('Server error');
+    }
+  });
