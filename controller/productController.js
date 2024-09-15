@@ -57,3 +57,14 @@ exports.addProduct = [
     // Retrieve all products
 
 ];
+exports.getProducts = async (req, res) => {
+    try {
+      const products = await Product.find().populate('farmer', 'name');
+      res.status(200).json(products);
+    } catch (err) {
+      console.error('Error retrieving products:', err.message);
+      res.status(500).send('Server error');
+    }
+  };
+  
+  
