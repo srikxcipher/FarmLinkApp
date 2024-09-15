@@ -8,3 +8,18 @@ const UserSchema = new mongoose.Schema({
   role: { type: String, enum: ['farmer', 'consumer', 'retailer'], required: true },
   date: { type: Date, default: Date.now },
 });
+
+// Hash the password before saving the user
+UserSchema.pre('save', async function (next) {
+  if (this.isNew) return next();
+  // !this.isModified('password')
+  try {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    
+  
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
