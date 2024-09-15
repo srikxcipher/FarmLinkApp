@@ -1,5 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const signupForm = document.getElementById('signupForm');
     const loginForm = document.getElementById('loginForm');
+
+    // Handle Signup Form Submission
+  signupForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent the default form submission
+
+    const name = document.getElementById('signupName').value;
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const userType = document.querySelector('input[name="userType"]:checked')?.value;
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/api/users/register', { // Adjust URL if necessary
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, password, role: userType })
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert('Registration successful');
+        // Optionally handle successful registration here (e.g., redirect to login page)
+        window.location.href = '/userProfile.html';
+      } else {
+        alert(`Error: ${data.errors.map(error => error.msg).join(', ')}`);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('There was an error. Please try again.');
+    }
+  });
+  // Handle Login Form Submission
   
     loginForm.addEventListener('submit', async (event) => {
       event.preventDefault(); // Prevent the form from submitting the traditional way
