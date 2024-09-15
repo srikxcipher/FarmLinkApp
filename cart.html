@@ -18,35 +18,37 @@
     </header>
 
     <!-- Navigation Bar -->
-    <nav class="side-nav">
-        <ul>
-            <li><a href="login.html"><img src="src/img/login.png" alt="Login"></a></li>
-            <li><a href="index.html"><img src="src/img/home.png" alt="Home"></a></li>
-            <li><a href="product.html"><img src="src/img/products.png" alt="Products"></a></li>
-            <li><a href="userProfile.html"><img src="src/img/profile.png" alt="Profile"></a></li>
-            <li><a href="contacts.html"><img src="src/img/contact and support.png" alt="Contact"></a></li>
+    <nav class="side-nav bg-dark">
+        <ul class="d-flex justify-content-around list-unstyled p-2">
+            <li><a href="login.html"><img src="src/img/login.png" alt="Login" class="img-fluid" width="40"></a></li>
+            <li><a href="index.html"><img src="src/img/home.png" alt="Home" class="img-fluid" width="40"></a></li>
+            <li><a href="product.html"><img src="src/img/products.png" alt="Products" class="img-fluid" width="40"></a></li>
+            <li><a href="userProfile.html"><img src="src/img/profile.png" alt="Profile" class="img-fluid" width="40"></a></li>
+            <li><a href="contacts.html"><img src="src/img/contact and support.png" alt="Contact" class="img-fluid" width="40"></a></li>
         </ul>
     </nav>
 
     <!-- Main Content -->
     <main class="container my-5">
-        <table class="table table-striped table-bordered">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Product Name</th>
-                    <th>Price (₹)</th>
-                    <th>Quantity</th>
-                    <th>Total (₹)</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="cart-items">
-                <!-- Cart items will be populated here dynamically -->
-                <tr id="cart-message">
-                    <!-- Message for empty cart will appear here -->
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Price (₹)</th>
+                        <th>Quantity</th>
+                        <th>Total (₹)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Cart items will be populated here dynamically -->
+                    <tr id="cart-message">
+                        <!-- Message for empty cart will appear here -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div class="cart-actions text-center mt-4">
             <button class="btn btn-secondary" onclick="clearCart()">Clear Cart</button>

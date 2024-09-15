@@ -1,159 +1,127 @@
-/* General Styles */
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 header {
-    background: #4CAF50;
+    background-color: #4CAF50;
+    padding: 20px;
+    text-align: center;
     color: white;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-.side-nav {
-    background: #f4f4f4;
-    padding: 1rem;
-    width: 200px;
-    float: left;
-    height: 100vh;
-    box-sizing: border-box;
-}
-
-.side-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-.side-nav ul li {
-    margin: 1rem 0;
-}
-
-.side-nav ul li a {
-    display: block;
-    text-align: center;
-}
-
-.side-nav ul li img {
-    width: 30px;
-    height: 30px;
 }
 
 .main-container {
-    margin-left: 220px; /* Adjusted for the side navigation width */
-    display: flex;
-    flex-wrap: nowrap; /* Ensure the main content area does not wrap */
-    gap: 1rem; /* Add gap between the main content and side sections */
-    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 20px;
+    padding: 20px;
 }
 
+/* Profile section */
 .profile-container {
-    flex: 2;
-    padding: 1rem;
-    background: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    grid-column: 2 / 3;
 }
 
 .profile-header {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
 .profile-picture img {
-    width: 100px;
-    height: 100px;
     border-radius: 50%;
-    margin-right: 1rem;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.profile-info {
+    margin-left: 20px;
 }
 
 .profile-info h1 {
+    font-size: 2rem;
     margin: 0;
 }
 
 .profile-info p {
-    margin: 0.5rem 0;
+    margin: 5px 0;
 }
 
 .about-us, .connect-with-us {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-.about-us h2, .connect-with-us h2 {
-    margin-top: 0;
-}
-
-.connect-with-us ul {
-    list-style: none;
-    padding: 0;
-}
-
-.connect-with-us ul li {
-    margin: 0.5rem 0;
-}
-
-.connect-with-us a {
-    color: #4CAF50;
-    text-decoration: none;
-}
-
-.connect-with-us a:hover {
-    text-decoration: underline;
-}
-
-/* Side Sections */
+/* Side sections */
 aside {
-    width: 200px;
-    padding: 1rem;
-    background: #f9f9f9;
+    background-color: #f7f7f7;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
 }
 
 aside h2 {
     margin-top: 0;
 }
 
-aside ul {
-    list-style: none;
-    padding: 0;
-}
-
-aside ul li {
-    margin: 0.5rem 0;
-}
-
-/* Specific styling for left and right sides */
-.left-side {
-    order: -1; /* Places this section before the main content in the flex container */
-}
-
-.right-side {
-    order: 1; /* Places this section after the main content in the flex container */
-}
-
-/* Adjust for content */
-.left-side, .right-side {
-    flex: 0 0 200px; /* Fix the width of the side sections */
-}
-
+/* Footer */
 footer {
-    background: #4CAF50;
+    background-color: #333;
     color: white;
     text-align: center;
-    padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 10px 0;
+    position: relative;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-info {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+
+    .profile-picture img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .profile-info h1 {
+        font-size: 1.5rem;
+    }
+
+    aside {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .profile-picture img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-info h1 {
+        font-size: 1.2rem;
+    }
 }

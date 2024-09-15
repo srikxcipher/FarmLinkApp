@@ -1,23 +1,30 @@
- /* Styling for better appearance */
- body {
-  background-image:url(src/img/login_img.jpg);
-  height:auto;
-  width:auto;
+body {
+  background-image: url('src/img/Login.jpg');
+  background-size: cover; /* Ensures the image covers the entire screen */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  height: 100vh; /* Ensures the height fills the viewport */
+  margin: 0;
+  padding: 0;
 }
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
+
 .login-btn {
   padding: 12px 30px;
   font-size: 18px;
 }
+
 .modal-content {
   border-radius: 10px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
 }
+
 .modal-header {
   background-color: #007bff;
   color: #fff;
@@ -25,10 +32,12 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+
 .btn-primary {
   background-color: #007bff;
   border-color: #007bff;
 }
+
 .label-buttons .btn {
   margin: 5px;
   font-size: 14px;
