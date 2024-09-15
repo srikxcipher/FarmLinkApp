@@ -1,5 +1,3 @@
-//handles adding of product by farmers
-const Product = require('../models/productModel');
 
 exports.addProduct = async (req, res) => {
   const { name, description, price, quantity } = req.body;
