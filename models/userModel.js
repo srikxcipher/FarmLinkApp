@@ -23,3 +23,11 @@ UserSchema.pre('save', async function (next) {
     next(err);
   }
 });
+// Compare password method
+UserSchema.methods.comparePassword = async function (candidatePassword) {
+  try {
+    return await argon2.verify(this.password,candidatePassword);
+  } catch (err) {
+    throw new Error('Error comparing passwords');
+  }
+};
