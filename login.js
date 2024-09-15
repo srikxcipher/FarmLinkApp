@@ -28,9 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const data = await response.json();
       if (response.ok) {
-        alert('Registration successful');
+        alert('Registration successful\nRedirecting to the login page\n please Login through your credentials');
+        
         // Optionally handle successful registration here (e.g., redirect to login page)
-        window.location.href = '/userProfile.html';
+        window.location.href = '/login.html';
       } else {
         alert(`Error: ${data.errors.map(error => error.msg).join(', ')}`);
       }
