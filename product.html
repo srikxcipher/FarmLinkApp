@@ -41,9 +41,12 @@
                     <button class="filter-btn" onclick="location.href='filter.html'">Filter Options</button>
                     <button class="filter-btn" onclick="location.href='cart.html'">My Cart</button>
                 </header>
+                <!-- <div class="added-product-list"> -->
+                    <!-- Product cards will be rendered here -->
+                <!-- </div> -->
                 <div class="product-list">
                     <!-- Product cards here -->
-                    <article class="product-card">
+                    <article class="product-card" id="added-product-list">
                         <img src="src/img/Rice.jpg" alt="Rice">
                         <h3>Rice</h3>
                         <p>&#8377 25/Kg</p>
@@ -78,6 +81,29 @@
     </footer>
 
     <script>
+                // Render products as cards
+            function renderProducts(products) {
+            const productList = document.getElementById('added-product-list');
+            productList.innerHTML = '';
+
+            products.forEach(product => {
+                const productCard = document.createElement('article');
+                productCard.classList.add('product-card');
+                
+                productCard.innerHTML = `
+                    <img src="src/img/${product.name}.jpg" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>&#8377; ${product.price}/Kg</p>
+                    <div class="quantity-section">
+                        <label for="quantity-${product._id}">Quantity:</label>
+                        <input type="number" id="quantity-${product._id}" name="quantity" min="1" value="1">
+                    </div>
+                    <div class="btn" onclick="addToCart('${product.name}', ${product.price}, 'quantity-${product._id}')">Add To Cart</div>
+                `;
+
+                productList.appendChild(productCard);
+            });
+        }
         // Function to add items to the cart
         function addToCart(name, price, quantityId) {
             const quantity = document.getElementById(quantityId).value;
