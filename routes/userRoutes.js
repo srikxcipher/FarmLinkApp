@@ -14,3 +14,5 @@ router.get('/test', (req, res) => {
 });
 // Register a new user
 router.post('/register', registerUser);
+//adding login route 
+router.post('/login', loginUser);
