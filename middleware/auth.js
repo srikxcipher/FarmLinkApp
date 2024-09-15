@@ -1,5 +1,4 @@
-// creates a jason web token which will expire in 5 hours treaby giving a user 5 hours of operation after a single authentication
-const jwt = require('jsonwebtoken');
+
 
 module.exports = function (req, res, next) {
   // Retrieve token from Authorization header
