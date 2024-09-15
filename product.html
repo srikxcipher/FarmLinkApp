@@ -4,71 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmers Market - Products</title>
+    <title>Farmers Market - Add Products</title>
     <link rel="stylesheet" href="products.css">
 </head>
 
 <body>
     <header>
-        <h1 class="heading">AgriBaazarConnect</h1>
+        <h1 class="heading">AgriBaazarConnect - Add Products</h1>
     </header>
 
     <div class="main-container">
-        <nav class="side-nav">
-            <ul>
-                <li>
-                    <a href="login.html"><img src="src/img/login.png" alt="Login"></a>
-                </li>
-                <li>
-                    <a href="index.html"><img src="src/img/home.png" alt="Home"></a>
-                </li>
-                <li>
-                    <a href="product.html"><img src="src/img/products.png" alt="Products"></a>
-                </li>
-                <li>
-                    <a href="userProfile.html"><img src="src/img/profile.png" alt="Profile"></a>
-                </li>
-                <li>
-                    <a href="contacts.html"><img src="src/img/contact and support.png" alt="Contact"></a>
-                </li>
-            </ul>
-        </nav>
-
         <main class="content">
             <div class="container">
                 <header class="product-header">
-                    <h2>Available Products</h2>
-                    <button class="filter-btn" onclick="location.href='filter.html'">Filter Options</button>
-                    <button class="filter-btn" onclick="location.href='cart.html'">My Cart</button>
+                    <h2>Add New Product</h2>
                 </header>
-                <div class="product-list">
-                    <!-- Product cards here -->
-                    <article class="product-card">
-                        <img src="src/img/Rice.jpg" alt="Rice">
-                        <h3>Rice</h3>
-                        <p>&#8377 25/Kg</p>
 
-                        <div class="quantity-section">
-                            <label for="quantity-rice">Quantity:</label>
-                            <input type="number" id="quantity-rice" name="quantity" min="1" value="1">
-                        </div>
-                        <div class="btn" onclick="addToCart('Rice', 25, 'quantity-rice')">Add To Cart</div>
-                    </article>
+                <form id="product-form">
+                    <label for="name">Product Name:</label>
+                    <input type="text" id="name" name="name" required><br>
 
-                    <article class="product-card">
-                        <img src="src/img/Paddy.jpg" alt="Paddy">
-                        <h3>Paddy</h3>
-                        <p>&#8377 50/Kg</p>
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description"></textarea><br>
 
-                        <div class="quantity-section">
-                            <label for="quantity-paddy">Quantity:</label>
-                            <input type="number" id="quantity-paddy" name="quantity" min="1" value="1">
-                        </div>
-                        <div class="btn" onclick="addToCart('Paddy', 50, 'quantity-paddy')">Add To Cart</div>
-                    </article>
+                    <label for="price">Price (₹):</label>
+                    <input type="number" id="price" name="price" required min="0"><br>
 
-                    <!-- Repeat the same pattern for other products -->
-                </div>
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" required min="0"><br>
+
+                    <button type="submit">Add Product</button>
+                </form>
+
+                <div id="message"></div>
             </div>
         </main>
     </div>
@@ -78,60 +46,32 @@
     </footer>
 
     <script>
-        // Function to add items to the cart
-        function addToCart(name, price, quantityId) {
-            const quantity = document.getElementById(quantityId).value;
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        document.getElementById('product-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
 
-            // Check if the item already exists in the cart
-            const existingItem = cart.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.quantity = parseInt(existingItem.quantity) + parseInt(quantity);
+            const name = document.getElementById('name').value;
+            const description = document.getElementById('description').value;
+            const price = document.getElementById('price').value;
+            const quantity = document.getElementById('quantity').value;
+
+            const token = localStorage.getItem('token'); // Retrieve the stored token
+
+            const response = await fetch('http://localhost:5000/api/products/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ name, description, price, quantity })
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                document.getElementById('message').innerHTML = 'Product added successfully!';
             } else {
-                cart.push({ name: name, price: price, quantity: parseInt(quantity) });
+                document.getElementById('message').innerHTML = `Error: ${result.msg || 'Failed to add product'}`;
             }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert(`${name} has been added to your cart!`);
-        }
-
-        // Function to load the cart items
-        function loadCart() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartItems = document.getElementById('cart-items');
-            if (cartItems) {
-                cartItems.innerHTML = '';
-
-                cart.forEach((item, index) => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${item.name}</td>
-                        <td>₹${item.price}</td>
-                        <td>${item.quantity}</td>
-                        <td>₹${(item.price * item.quantity).toFixed(2)}</td>
-                        <td><button onclick="removeFromCart(${index})">Remove</button></td>
-                    `;
-                    cartItems.appendChild(row);
-                });
-            }
-        }
-
-        // Function to clear the cart
-        function clearCart() {
-            localStorage.removeItem('cart');
-            loadCart();
-        }
-
-        // Function to remove an item from the cart
-        function removeFromCart(index) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            loadCart();
-        }
-
-        // Load the cart when the page loads
-        document.addEventListener('DOMContentLoaded', loadCart);
+        });
     </script>
 
 </body>
