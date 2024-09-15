@@ -191,5 +191,19 @@
             direction: 'alternate'
         });
     </script>
+    <!-- weather api client side -->
+    <script>
+        const apiKey = 'YOUR_API_KEY';
+        const city = 'London';
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const weatherDiv = document.getElementById('suggestions-list');
+                weatherDiv.innerHTML = `Temperature in ${data.name}: ${Math.round(data.main.temp - 273.15)}°C`;
+            })
+            .catch(error => console.error('Error fetching weather:', error));
+    </script>
 </body>
 </html>
