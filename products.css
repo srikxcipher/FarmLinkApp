@@ -18,19 +18,22 @@ header {
     text-align: center;
 }
 
+h1.heading {
+    font-size: 2rem;
+}
+
 /* Navigation Bar Styles */
 .side-nav {
     background-color: #333;
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
-    align-items: center; /* Vertically center the items */
-    height: 50px; /* Fixed height for the nav bar */
+    align-items: center;
+    height: 50px;
     width: 100%;
-    position: sticky; /* Stick the nav bar to the top */
-    top: 0; /* Offset from the top */
+    position: sticky;
+    top: 0;
     z-index: 1000;
-    padding: 0 10px; /* Added horizontal padding */
+    padding: 0 10px;
 }
 
 .side-nav ul {
@@ -39,16 +42,16 @@ header {
     padding: 0;
     margin: 0;
     width: 100%;
-    justify-content: space-around; /* Space items evenly */
+    justify-content: space-around;
 }
 
 .side-nav ul li {
-    margin: 0; /* Removed margin to fit within height */
+    margin: 0;
     text-align: center;
 }
 
 .side-nav ul li a img {
-    width: 40px; /* Adjust size as needed */
+    width: 40px;
     height: auto;
     display: block;
 }
@@ -56,8 +59,8 @@ header {
 /* Main container with flexbox layout */
 .main-container {
     display: flex;
-    flex-direction: column; /* Change to column layout */
-    margin: 0; /* Remove any default margin */
+    flex-direction: column;
+    margin: 0;
 }
 
 /* Main content area styling */
@@ -70,9 +73,9 @@ header {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px; /* Add some padding around the content */
-    background-color: #f8f9fa; /* Light background for the main container */
-    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
 }
 
 /* Heading styling for sections */
@@ -155,23 +158,31 @@ footer {
 /* Responsive Media Queries */
 @media (max-width: 768px) {
     .side-nav {
-        flex-direction: row; /* Keep horizontal layout for mobile view */
+        flex-direction: row;
         padding: 0 10px;
-        height: 50px; /* Ensure consistent height */
+        height: 50px;
     }
 
     .side-nav ul {
-        display: flex; /* Keep horizontal layout for mobile */
+        display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
 
     .side-nav ul li {
-        margin: 0 10px; /* Reduced spacing for mobile view */
+        margin: 0 10px;
     }
 
     .content {
         padding: 10px;
+    }
+
+    .product-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid for tablets */
+    }
+
+    h1.heading {
+        font-size: 1.8rem;
     }
 }
 
@@ -180,8 +191,34 @@ footer {
         width: 30px; /* Adjust icon size for mobile view */
     }
 
+    .product-list {
+        grid-template-columns: 1fr; /* Single column layout on mobile */
+    }
+
+    .product-card {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .product-card img {
+        width: 100%;
+    }
+
     .btn {
         padding: 8px 16px;
+        font-size: 0.9rem; /* Adjust button size */
+    }
+
+    h1.heading {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .quantity-section input {
+        width: 40px;
     }
 }
 
@@ -190,24 +227,22 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white; /* White background for the header */
+    background-color: white;
     padding: 10px 20px;
-    border-radius: 8px; /* Optional: rounded corners */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
-/* Style for the Available Products heading */
 .product-header h2 {
-    color: black; /* Set the text color to black */
-    margin: 0; /* Remove default margin for better alignment */
-    font-size: 24px; /* Adjust font size if needed */
+    color: black;
+    margin: 0;
+    font-size: 24px;
 }
 
-/* Filter button styles */
 .filter-btn {
     padding: 8px 15px;
-    background-color: #28a745; /* Green background */
+    background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
@@ -217,5 +252,5 @@ footer {
 }
 
 .filter-btn:hover {
-    background-color: #218838; /* Darker shade on hover */
+    background-color: #218838;
 }
