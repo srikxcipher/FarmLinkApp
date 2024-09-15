@@ -26,8 +26,9 @@ UserSchema.pre('save', async function (next) {
 // Compare password method
 UserSchema.methods.comparePassword = async function (candidatePassword) {
   try {
-    return await argon2.verify(this.password,candidatePassword);
+    return await bcrypt.compare(candidatePassword, this.password);
   } catch (err) {
     throw new Error('Error comparing passwords');
   }
 };
+module.exports = mongoose.model('User', UserSchema);
