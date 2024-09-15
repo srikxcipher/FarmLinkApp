@@ -92,7 +92,7 @@ header {
 .feature-card {
     background: #fff;
     border: 1px solid #ddd;
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 10px;
@@ -102,7 +102,7 @@ header {
 }
 
 .feature-card img {
-    width: 50px;
+    width: 200px;
     height: auto;
 }
 
