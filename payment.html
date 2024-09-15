@@ -1,93 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payment Page</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-image: url("/src/img/payment.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-        }
-        .payment-container {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .btn-custom {
-            background-color: #3399cc;
-            color: #fff;
-            border: none;
-        }
-        .btn-custom:hover {
-            background-color: #2671a0;
-        }
-    </style>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-</head>
-<body>
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="payment-container">
-            <h1 class="text-center mb-4">Complete Your Payment</h1>
-            <p class="text-center mb-4">Click 'Pay with Razorpay' to complete your purchase.</p>
-            <div class="d-flex justify-content-center">
-                <button id="rzp-button1" class="btn btn-custom btn-lg">Pay with Razorpay</button>
-            </div>
+    <link rel="stylesheet" href="payment.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Secure Payment Gateway</h1>
+      </div>
+    </header>
+
+    <div class="main-container">
+      <div class="payment-methods">
+        <h2>Select Payment Method</h2>
+        <div class="payment-options">
+          <!-- UPI Payment -->
+          <div class="payment-option">
+            <h3>UPI</h3>
+            <label for="upi-id">Enter UPI ID:</label>
+            <input type="text" id="upi-id" placeholder="example@upi" />
+            <button class="pay-button upi-button">Pay with UPI</button>
+          </div>
+
+          <!-- Razorpay Payment -->
+          <div class="payment-option">
+            <h3>Razorpay</h3>
+            <p>Fast and secure payments with Razorpay.</p>
+            <button class="pay-button razorpay-button">
+              Pay with Razorpay
+            </button>
+          </div>
+
+          <!-- Stripe Payment -->
+          <div class="payment-option">
+            <h3>Stripe</h3>
+            <p>Complete your payment via Stripe.</p>
+            <button class="pay-button stripe-button">Pay with Stripe</button>
+          </div>
+
+          <!-- Net Banking -->
+          <div class="payment-option">
+            <h3>Net Banking</h3>
+            <label for="bank-options">Select Your Bank:</label>
+            <select id="bank-options">
+              <option value="sbi">State Bank of India (SBI)</option>
+              <option value="hdfc">HDFC Bank</option>
+              <option value="icici">ICICI Bank</option>
+              <option value="axis">Axis Bank</option>
+              <option value="kotak">Kotak Mahindra Bank</option>
+              <option value="yes">Yes Bank</option>
+            </select>
+            <button class="pay-button netbanking-button">
+              Pay via Net Banking
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <script>
-        // Function to handle payment
-        document.getElementById('rzp-button1').onclick = function(e) {
-            e.preventDefault();
+    <footer>
+      <p>&copy; 2024 CodeTitans. All rights reserved.</p>
+    </footer>
 
-            const options = {
-                key: 'YOUR_KEY_ID', // Replace with your Razorpay Key ID
-                amount: '50000', // Amount in smallest currency unit (paise for INR)
-                currency: 'INR',
-                name: 'Your Company Name',
-                description: 'Test Transaction',
-                image: 'https://example.com/your_logo', // Replace with your logo URL
-                order_id: 'ORDER_ID_FROM_BACKEND', // Pass the order ID generated on the backend
-                handler: function (response){
-                    // Handle the payment response here
-                    alert('Payment successful!');
-                    console.log('Payment ID: ', response.razorpay_payment_id);
-                    console.log('Order ID: ', response.razorpay_order_id);
-                    console.log('Signature: ', response.razorpay_signature);
-
-                    // Optionally, you can make an AJAX request to your backend to verify the payment
-                    // and update your order status in the database.
-                },
-                prefill: {
-                    name: 'User Name', // Replace with the user's name
-                    email: 'user@example.com', // Replace with the user's email
-                    contact: '9999999999' // Replace with the user's phone number
-                },
-                notes: {
-                    address: 'User Address' // Additional notes for your records
-                },
-                theme: {
-                    color: '#3399cc' // Customize the color of the Razorpay form
-                }
-            };
-
-            const rzp1 = new Razorpay(options);
-            rzp1.open();
-
-            // Optional: you can disable the button to prevent multiple clicks
-            document.getElementById('rzp-button1').disabled = true;
-        };
-    </script>
-
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+    <!-- Include the JavaScript file -->
+    <script src="payment.js"></script>
+  </body>
 </html>

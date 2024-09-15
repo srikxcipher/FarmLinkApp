@@ -1,0 +1,150 @@
+/* General Style */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a75d0;
+    color: white;
+}
+
+/* Header */
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.payment-methods {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    text-align: center;
+}
+
+.payment-methods h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.payment-option {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.payment-option h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.payment-option label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.payment-option input,
+.payment-option select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.pay-button {
+    background-color: #1a75d0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.pay-button:hover {
+    background-color: black;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a75d0;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .payment-methods {
+        width: 70%;
+    }
+}
+
+@media (max-width: 992px) {
+    .payment-methods {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .payment-methods {
+        width: 90%;
+    }
+
+    .payment-options {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-option {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-option h3 {
+        font-size: 18px;
+    }
+
+    .payment-option label {
+        font-size: 14px;
+    }
+
+    .payment-option input,
+    .payment-option select {
+        padding: 8px;
+    }
+
+    .pay-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
