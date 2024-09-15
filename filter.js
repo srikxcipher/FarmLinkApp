@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Carrot", img: "src/img/Carrot.jpg", price: Math.floor(Math.random() * 500), discounts: [30] },
             { name: "Cauliflower", img: "src/img/Cauliflower.jpg", price: Math.floor(Math.random() * 500), discounts: [0] },
             { name: "Corn", img: "src/img/Corn.jpg", price: Math.floor(Math.random() * 500), discounts: [10] },
-            { name: "Cucumber", img: "src/img/ucumber.jpg", price: Math.floor(Math.random() * 500), discounts: [20] },
+            { name: "Cucumber", img: "src/img/Cucumber.jpg", price: Math.floor(Math.random() * 500), discounts: [20] },
             { name: "Pumpkin", img: "src/img/Pumpkin.jpg", price: Math.floor(Math.random() * 500), discounts: [30] },
             { name: "Tomato", img: "src/img/Tomato.jpg", price: Math.floor(Math.random() * 500), discounts: [0] }
         ]
