@@ -1,6 +1,6 @@
 
 
-# FarmConnect: Direct Marketplace for Farmers
+# AgriBaazar: Direct Marketplace for Farmers
 
 FarmConnect is a mobile application designed to bridge the gap between farmers and consumers, reducing dependence on middlemen and enabling farmers to sell their produce at fair prices. This platform empowers farmers by providing them with the tools to list their produce, negotiate prices, and manage transactions directly with buyers and retailers.
 
